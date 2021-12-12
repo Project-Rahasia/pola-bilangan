@@ -59,7 +59,12 @@ document.querySelector(".accordion").innerHTML = `
         )}">Barisan Bilangan Ganjil dan Genap</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/pages/materi-1/1/" class="list-course-child">Barisan Bilangan Fibonacci</a>
+        <a href="/materi/sub-2/2/" class="list-course-child ${getChapChild(
+          "sub-2/2/"
+        )}">Barisan Bilangan Fibonacci</a>
+      </div>
+      <div class="list-course mb-3">
+        <a href="/pages/materi-1/1/" class="list-course-child">Pola Bilangan Segitiga Pascal</a>
       </div>
       <div class="list-course mb-3">
         <a href="/pages/materi-1/1/" class="list-course-child">Barisan Bilangan Lainnya</a>
@@ -72,12 +77,30 @@ document.querySelector(".accordion").innerHTML = `
 </div>
 <div class="accordion-item">
   <h2 class="accordion-header" id="flush-headingThree">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-      Accordion Item #3
+    <button class="accordion-button ${getCollapsed(
+      "sub-3"
+    )}" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+      Menentukan Persamaan dari Suatu Konfigurasi Objek
     </button>
   </h2>
   <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+    <div class="accordion-body">
+      <div class="list-course mb-3">
+        <a href="/pages/materi-1/1/" class="list-course-child">Pola Bilangan Persegi</a>
+      </div>
+      <div class="list-course mb-3">
+        <a href="/pages/materi-1/1/" class="list-course-child">Pola Bilangan Persegi Panjang</a>
+      </div>
+      <div class="list-course mb-3">
+        <a href="/pages/materi-1/1/" class="list-course-child">Pola Bilangan Segitiga</a>
+      </div>
+      <div class="list-course mb-3">
+        <a href="/pages/materi-1/1/" class="list-course-child">Pola Konfigurasi Objek Lainnya</a>
+      </div>
+      <div class="list-course mb-3">
+        <a href="/pages/materi-1/1/" class="list-course-child">Kuis</a>
+      </div>
+    </div>
   </div>
 </div>
 `;

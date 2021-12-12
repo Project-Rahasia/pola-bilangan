@@ -94,7 +94,7 @@ body {
 }
 
 .card {
-  border-radius: 0px !important;
+  border-radius: 0px;
 }
 
 .course ol li, ul li {

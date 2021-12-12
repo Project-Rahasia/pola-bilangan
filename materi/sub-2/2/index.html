@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pola Bilangan</title>
+  <link rel="shortcut icon" href="/logo-2.png" type="image/x-icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+  <!-- Materi CSS -->
+  <link rel="stylesheet" href="/assets/css/materi.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+    
+  </nav>
+  
+  <!-- Main Content -->
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-md-3 col-sm-12 sidebar">
+        <div class="mt-3">
+          <h3>Daftar Materi</h3>
+          <hr>
+          <!-- List course -->
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            
+          </div>
+          <!-- End List course -->
+
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-12 mt-3 main-course">
+        <!-- Breadcrumb -->
+          <ol class="breadcrumb container">
+          <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+          <li class="breadcrumb-item"><a href="/materi/sub-2/0/index.html">Menentukan Persamaan dari Suatu Barisan Bilangan
+          </a></li>
+          <li class="breadcrumb-item active">Barisan Bilangan Fibonacci</li>
+        </ol>
+        <hr>
+        <!-- End Breadcrumb -->
+
+        <h1>Barisan Bilangan Fibonacci</h1>
+
+        <p>Fibonacci adalah barisan bilangan dimana jumlah bilangan setelahnya merupakan hasil dari penjumlahan dua bilangan sebelumnya. Perhatikan contoh berikut ini, misalkan dua bilangan fibonacci pertama yaitu bilangan 0 dan 1, maka barisan bilangan fibonacci yang terbentuk adalah :</p>
+
+        <div class="text-center">
+          <p class="fw-bold">0, 1, 1, 2, 3, 5, 8, ...</p>
+        </div>
+        
+        <p>Sedangkan rumus umum dari bilangan fibonacci dapat ditentukan dengan cara memperhatikan pola dari kesamaan-kesamaan berikut. </p>
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-7 col-sm-12">
+            <p>
+              Bilangan ke-1 $(U_{1})$ = 0 <br>
+              Bilangan ke-2 $(U_{2})$ = 1 <br>
+              Bilangan ke-3 $(U_{3})$ = $U_{1} + U_{2}$ = 0 + 1 = 1 <br>
+              Bilangan ke-4 $(U_{4})$ = $U_{2} + U_{3}$ = 1 + 1 = 2 <br>
+              Bilangan ke-5 $(U_{5})$ = $U_{3} + U_{4}$ = 1 + 2 = 3 <br>
+              Bilangan ke-6 $(U_{6})$ = $U_{4} + U_{5}$ = 2 + 3 = 5 <br>
+              Bilangan ke-7 $(U_{7})$ = $U_{5} + U_{6}$ = 5 + 3 = 8 <br>
+              Bilangan ke-n $(U_{n})$ = $U_{n-2} + U_{n-1}$
+            </p>
+          </div>
+        </div>
+
+        <p>Berdasarkan uraian di atas, dapat disimpulkan bahwa pola atau rumus umum barisan bilangan fibonacci di atas adalah $(U_{n}) = U_{n-2} + U_{n-1}$, dengan n anggota bilangan asli.</p>
+
+        <div class="card bg-example my-2 shadow">
+          <div class="card-body">
+            <h5 class="text-white">Contoh Soal 1:</h5>
+
+            <p class="text-white">Perhatikan barisan bilangan berikut!</p>
+            <p class="fw-bold text-center text-white">0, 2, 2, 4, 6, 10, 16, ...</p>
+            <p class="text-white">
+              Pola bilangan apakah yang terbentuk dari barisan bilangan tersebut? <br>
+              Jawab: <br>
+              Pola yang terbentuk dari bilangan tersebut adalah sebagai berikut.
+            </p>
+
+            <div class="row justify-content-center">
+              <div class="col-lg-7 col-sm-12">
+                <p class="text-white">
+                  Suku ke-3 = Suku ke-2 + Suku ke-1 = 2 + 0 = 2 <br>
+                  Suku ke-4 = Suku ke-3 + Suku ke-2 = 2 + 2 = 4 <br>
+                  Suku ke-5 = Suku ke-4 + Suku ke-3 = 4 + 2 = 6 <br>
+                  Suku ke-6 = Suku ke-5 + Suku ke-4 = 6 + 4 = 10 <br>
+                </p>
+              </div>
+            </div>
+
+            <p class="text-white">Berdasarkan uraian di atas terlihat bahwa suatu suku dalam barisan bilangan tersebut merupakan hasil penjumlahan 2 suku sebelumnya, maka dapat disimpulkan bahwa pola bilangan yang terbentuk dari barisan bilangan tersebut adalah pola bilangan Fibonacci.</p>
+          </div>
+        </div>
+
+        <div class="card bg-example my-2 shadow">
+          <div class="card-body">
+            <h5 class="text-white">Contoh Soal 2:</h5>
+            <p class="text-white">Diketahui sebuah barisan bilangan terdiri dari 4, 6, 10, 16, 26, .... Berapakah nilai dari suku ke-6 dan 7? <br>
+            Jawab:</p>
+
+            <div class="course">
+              <ul>
+                <li>
+                  <p class="text-white">
+                    $n = 6$ <br>
+                    $(U_{n}) = U_{n-2} + U_{n-1}$ <br>
+                    $(U_{6}) = U_{4} + U_{5}$ <br>
+                    $(U_{6}) = 16 + 26$ <br>
+                    $(U_{6}) = 42$ <br>
+                  </p>
+                </li>
+                <li>
+                  <p class="text-white">
+                    $n = 7$ <br>
+                    $(U_{n}) = U_{n-2} + U_{n-1}$ <br>
+                    $(U_{7}) = U_{5} + U_{6}$ <br>
+                    $(U_{7}) = 26 + 42$ <br>
+                    $(U_{7}) = 68$ <br>
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <p class="text-white">Jadi, nilai dari bilangan ke-6 dan 7 dari barisan bilangan tersebut berturut-turut adalah 42 dan 68. </p>
+          </div>
+        </div>
+
+        <hr>
+        <div class="row web my-3">
+          <div class="col-lg-6 col-sm-12">
+            <a href="/materi/sub-2/1/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
+          </div>
+          <div class="col-lg-6 col-sm-12 text-end">
+            <a href="/materi/sub-2/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <div class="responsive my-3">
+          <div class="d-grid gap-2">
+            <a href="/materi/sub-2/1/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
+            <a href="/materi/sub-2/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Main Content -->
+
+  <section id="footer">
+    
+  </section>
+
+  <!-- Float Button -->
+  <a href="#" class="float" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fa fa-plus my-float"></i>
+  </a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/list-course.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/modal.js"></script>
+
+  <!-- Mathjax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</body>
+</html>
