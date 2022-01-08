@@ -126,6 +126,15 @@ body {
   border-radius: 2px;
 }
 
+/* Latihan */
+.tab-content {
+  display: none;
+}
+
+.tab-content .active {
+  display: block;
+}
+
 /* Footer */
 #footer {
   padding: 3px 0;
