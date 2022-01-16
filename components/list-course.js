@@ -64,10 +64,14 @@ document.querySelector(".accordion").innerHTML = `
         )}">Barisan Bilangan Fibonacci</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/pages/materi-1/1/" class="list-course-child">Pola Bilangan Segitiga Pascal</a>
+        <a href="/materi/sub-2/3/" class="list-course-child ${getChapChild(
+          "sub-2/3/"
+        )}">Pola Bilangan Segitiga Pascal</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/pages/materi-1/1/" class="list-course-child">Barisan Bilangan Lainnya</a>
+        <a href="/materi/sub-2/4/" class="list-course-child ${getChapChild(
+          "sub-2/4/"
+        )}">Barisan Bilangan Lainnya</a>
       </div>
       <div class="list-course mb-3">
         <a href="/pages/materi-1/1/" class="list-course-child">Kuis</a>

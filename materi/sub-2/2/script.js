@@ -1,141 +1,115 @@
-document.addEventListener("DOMContentLoaded", () => {
-  let content1 = document.querySelector("#content-5");
-  let nextSoal = document.querySelectorAll(".next-soal");
-  let tabContent = document.querySelectorAll(".tab-content");
+let randomQuestion = questions.sort((a, b) => {
+  return 0.5 - Math.random();
+});
 
-  let currentTab = 1;
+function buildQuiz() {
+  const output = [];
+  let currentNumber = 1;
 
-  content1.style.display = "block";
+  randomQuestion.forEach((currentQuestion, questionNumber) => {
+    const answers = [];
 
-  function nextSlide() {
-    tabContent[currentTab - 1].style.display = "none";
-    currentTab++;
-    let tab = document.querySelector("#content-" + currentTab);
-    tab.style.display = "block";
+    output.push(
+      `
+        <div class="slide">
+          <div class="question">${currentQuestion.question}</div>
+          <div class="answers">
+            <input type="text" name="question${questionNumber}-1" id="question${questionNumber}-1" placeholder="...." data="${currentNumber}" class="form-control text-center answer my-2">
+            <input type="text" name="question${questionNumber}-2" id="question${questionNumber}-2" placeholder="...." data="${currentNumber}" class="form-control text-center answer my-2">
+            <input type="text" name="question${questionNumber}-3" id="question${questionNumber}-3" placeholder="...." data="${currentNumber}" class="form-control text-center answer my-2">
+          </div>
+          <div class="messages"><span class="message-${questionNumber}"></span></div>
+        </div>
+      `
+    );
+
+    currentNumber++;
+  });
+  questionContainer.innerHTML = output.join("");
+}
+
+function showSlide(n) {
+  slides[currentSlide].classList.remove("active-slide");
+  slides[n].classList.add("active-slide");
+  currentSlide = n;
+
+  if (currentSlide === slides.length - 1) {
+    nextButton.style.display = "none";
+  } else {
+    nextButton.style.display = "inline-block";
+  }
+}
+
+function nextSlide() {
+  showSlide(currentSlide + 1);
+  nextButton.style.display = "none";
+}
+
+const questionContainer = document.querySelector("#quiz");
+const nextButton = document.querySelector("#next");
+const checkAnswer = document.querySelector("#check");
+
+buildQuiz();
+
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+showSlide(currentSlide);
+nextButton.addEventListener("click", nextSlide);
+nextButton.style.display = "none";
+
+checkAnswer.addEventListener("click", () => {
+  const answerContainers = questionContainer.querySelectorAll(".answers");
+  const answerContainer = answerContainers[currentSlide];
+  const selector1 = `input[id=question${currentSlide}-1]`;
+  const selector2 = `input[id=question${currentSlide}-2]`;
+  const selector3 = `input[id=question${currentSlide}-3]`;
+  const userAnswer1 = (answerContainer.querySelector(selector1) || {}).value;
+  const userAnswer2 = (answerContainer.querySelector(selector2) || {}).value;
+  const userAnswer3 = (answerContainer.querySelector(selector3) || {}).value;
+
+  const messageContainers = questionContainer.querySelectorAll(".messages");
+  const messageContainer = messageContainers[currentSlide];
+
+  const correctAnswer = results(currentSlide);
+
+  let correct = 0;
+  if (parseInt(userAnswer1) === correctAnswer[0]) {
+    answerContainer.querySelector(selector1).style.border = "2px solid green";
+    correct++;
+  } else {
+    answerContainer.querySelector(selector1).style.border = "2px solid red";
   }
 
-  nextSoal[0].addEventListener("click", nextSlide);
-  nextSoal[1].addEventListener("click", nextSlide);
-  nextSoal[2].addEventListener("click", nextSlide);
-  nextSoal[3].addEventListener("click", nextSlide);
+  if (parseInt(userAnswer2) === correctAnswer[1]) {
+    answerContainer.querySelector(selector2).style.border = "2px solid green";
+    correct++;
+  } else {
+    answerContainer.querySelector(selector2).style.border = "2px solid red";
+  }
 
-  // Soal 1
-  const userAnswerSatu = document.querySelectorAll(".user-answer-1");
-  const checkSatu = document.getElementById("check-1");
-  const messageSatu = document.getElementById("message-1");
-  const answerSatu = [13, 21, 34];
+  if (parseInt(userAnswer3) === correctAnswer[2]) {
+    answerContainer.querySelector(selector3).style.border = "2px solid green";
+    correct++;
+  } else {
+    answerContainer.querySelector(selector3).style.border = "2px solid red";
+  }
 
-  checkSatu.addEventListener("click", () => {
-    let wrong = 0;
-    answerSatu.forEach((item, index) => {
-      if (parseInt(userAnswerSatu[index].value) != item) {
-        userAnswerSatu[index].style.border = "2px solid red";
-        wrong++;
-      } else {
-        userAnswerSatu[index].style.border = "2px solid green";
-      }
-    });
-
-    if (wrong === 2) {
-      messageSatu.innerHTML = "<b>Semua jawaban salah</b>";
-      messageSatu.style.color = "red";
-    } else if (wrong > 0) {
-      messageSatu.innerHTML = "<b>Masih ada jawaban yang salah</b>";
-      messageSatu.style.color = "red";
+  if (correct === 3) {
+    if (currentSlide === slides.length - 1) {
+      nextButton.style.display = "none";
+      messageContainer.innerHTML = `<h5 class="text-success">Jawaban Benar Semua, Silahkan lanjut materi berikutnya.</h5>`;
     } else {
-      messageSatu.innerHTML = "<b>Jawaban benar semua</b>";
-      messageSatu.style.color = "green";
-      nextSoal[0].classList.remove("disabled");
+      nextButton.style.display = "inline-block";
+      messageContainer.innerHTML = `<h5 class="text-success">Jawaban Benar Semua</h5>`;
     }
-  });
-
-  // Soal 2
-  const userAnswerDua = document.querySelectorAll(".user-answer-2");
-  const checkDua = document.getElementById("check-2");
-  const messageDua = document.getElementById("message-2");
-  const answerDua = [55, 88, 143];
-
-  checkDua.addEventListener("click", () => {
-    let wrong = 0;
-    answerDua.forEach((item, index) => {
-      if (parseInt(userAnswerDua[index].value) != item) {
-        userAnswerDua[index].style.border = "2px solid red";
-        wrong++;
-      } else {
-        userAnswerDua[index].style.border = "2px solid green";
-      }
-    });
-
-    if (wrong === 2) {
-      messageDua.innerHTML = "<b>Semua jawaban salah</b>";
-      messageDua.style.color = "red";
-    } else if (wrong > 0) {
-      messageDua.innerHTML = "<b>Masih ada jawaban yang salah</b>";
-      messageDua.style.color = "red";
-    } else {
-      messageDua.innerHTML = "<b>Jawaban benar semua</b>";
-      messageDua.style.color = "green";
-      nextSoal[1].classList.remove("disabled");
-    }
-  });
-
-  // Soal 3
-  const userAnswerTiga = document.querySelectorAll(".user-answer-3");
-  const checkTiga = document.getElementById("check-3");
-  const messageTiga = document.getElementById("message-3");
-  const answerTiga = [320, 530, 850];
-
-  checkTiga.addEventListener("click", () => {
-    let wrong = 0;
-    answerTiga.forEach((item, index) => {
-      if (parseInt(userAnswerTiga[index].value) != item) {
-        userAnswerTiga[index].style.border = "2px solid red";
-        wrong++;
-      } else {
-        userAnswerTiga[index].style.border = "2px solid green";
-      }
-    });
-
-    if (wrong === 2) {
-      messageTiga.innerHTML = "<b>Semua jawaban salah</b>";
-      messageTiga.style.color = "red";
-    } else if (wrong > 0) {
-      messageTiga.innerHTML = "<b>Masih ada jawaban yang salah</b>";
-      messageTiga.style.color = "red";
-    } else {
-      messageTiga.innerHTML = "<b>Jawaban benar semua</b>";
-      messageTiga.style.color = "green";
-      nextSoal[2].classList.remove("disabled");
-    }
-  });
-
-  // Soal 4
-  const userAnswerEmpat = document.querySelectorAll(".user-answer-4");
-  const checkEmpat = document.getElementById("check-4");
-  const messageEmpat = document.getElementById("message-4");
-  const answerEmpat = [38, 62, 100];
-
-  checkEmpat.addEventListener("click", () => {
-    let wrong = 0;
-    answerEmpat.forEach((item, index) => {
-      if (parseInt(userAnswerEmpat[index].value) != item) {
-        userAnswerEmpat[index].style.border = "2px solid red";
-        wrong++;
-      } else {
-        userAnswerEmpat[index].style.border = "2px solid green";
-      }
-    });
-
-    if (wrong === 2) {
-      messageEmpat.innerHTML = "<b>Semua jawaban salah</b>";
-      messageEmpat.style.color = "red";
-    } else if (wrong > 0) {
-      messageEmpat.innerHTML = "<b>Masih ada jawaban yang salah</b>";
-      messageEmpat.style.color = "red";
-    } else {
-      messageEmpat.innerHTML = "<b>Jawaban benar semua</b>";
-      messageEmpat.style.color = "green";
-      nextSoal[3].classList.remove("disabled");
-    }
-  });
+  } else if (correct === 0) {
+    messageContainer.innerHTML = `<h5 class="text-danger">Jawaban Salah Semua</h5>`;
+  } else {
+    messageContainer.innerHTML = `<h5 class="text-danger">Jawaban Masih Ada yang Salah</h5>`;
+  }
 });
+
+function results(n) {
+  return randomQuestion[n].answer;
+}

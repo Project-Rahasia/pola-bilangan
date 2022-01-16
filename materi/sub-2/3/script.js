@@ -67,10 +67,10 @@ checkAnswer.addEventListener("click", () => {
 
   const correctAnswer = results(currentSlide);
 
-  if (userAnswer.toLowerCase() === correctAnswer) {
+  if (parseInt(userAnswer) === correctAnswer) {
     if (currentSlide === slides.length - 1) {
       nextButton.style.display = "none";
-      messageContainer.innerHTML = `<h5 class="text-success">Jawaban Benar, Silahkan lanjut ke materi berikutnya.</h5>`;
+      messageContainer.innerHTML = `<h5 class="text-success">Jawaban Benar, Silahkan lanjut materi berikutnya.</h5>`;
     } else {
       nextButton.style.display = "inline-block";
       messageContainer.innerHTML = `<h5 class="text-success">Jawaban Benar</h5>`;

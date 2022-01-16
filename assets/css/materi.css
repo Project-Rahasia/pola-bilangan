@@ -110,6 +110,8 @@ body {
 }
 
 .btn-check-answer {
+  font-size: 1em;
+  padding: 0.5em 0.7em;
   background-color: #04C5D7;
   border-radius: 2px;
   color: #fff;
@@ -124,15 +126,6 @@ body {
   font-size: 1em;
   padding: 0.5em 0.7em;
   border-radius: 2px;
-}
-
-/* Latihan */
-.tab-content {
-  display: none;
-}
-
-.tab-content .active {
-  display: block;
 }
 
 /* Footer */

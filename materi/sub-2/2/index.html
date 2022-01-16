@@ -13,6 +13,7 @@
 
   <!-- Materi CSS -->
   <link rel="stylesheet" href="/assets/css/materi.css">
+  <link rel="stylesheet" href="/assets/css/utils-materi.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
@@ -38,7 +39,7 @@
         <!-- Breadcrumb -->
           <ol class="breadcrumb container">
           <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-          <li class="breadcrumb-item"><a href="/materi/sub-2/0/index.html">Menentukan Persamaan dari Suatu Barisan Bilangan
+          <li class="breadcrumb-item"><a href="/materi/sub-2/0/">Menentukan Persamaan dari Suatu Barisan Bilangan
           </a></li>
           <li class="breadcrumb-item active">Barisan Bilangan Fibonacci</li>
         </ol>
@@ -132,101 +133,19 @@
           </div>
         </div>
 
-        <div class="card my-3">
+        <div class="card my-3 shadow">
           <div class="card-header">
             <h5>Pertanyaan</h5>
           </div>
           <div class="card-body">
-            <div class="tab-content" id="content-1">
-              <p>Tentukanlah 3 bilangan berikutnya dari barisan bilangan fibonacci berikut.</p>
-              <h5>Soal 1</h5>
-              <div class="my-1">
-                <p>
-                  2, 3, 5, 8, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-1" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-1" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-1" autocomplete="off">
-                </p>
-              </div>
-              <p id="message-1"></p>
-              <div class="my-2">
-                <button class="btn btn-sm btn-success" id="check-1">Periksa</button>
-                <button class="btn btn-sm btn-danger next-soal disabled">Soal Selanjutnya</button>
-              </div>
+            <div class="quiz-container">
+              <div id="quiz"></div>
             </div>
-
-            <div class="tab-content" id="content-2">
-              <p>Tentukanlah 3 bilangan berikutnya dari barisan bilangan fibonacci berikut.</p>
-              <h5>Soal 2</h5>
-              <div class="my-1">
-                <p>
-                  11, 22, 33, 55,
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-2" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-2" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-2" autocomplete="off">
-                </p>
-              </div>
-              <p id="message-2"></p>
-              <div class="my-2">
-                <button class="btn btn-sm btn-success" id="check-2">Periksa</button>
-                <button class="btn btn-sm btn-danger next-soal disabled">Soal Selanjutnya</button>
-              </div>
+            <hr>
+            <div class="btn-action text-center">
+              <button id="check" class="btn btn-lg btn-check-answer shadow" >Cek Jawaban</button>
+              <button id="next" class="btn btn-md btn-secondary shadow" >Soal Selanjutnya</button>
             </div>
-
-            <div class="tab-content" id="content-3">
-              <p>Tentukanlah 3 bilangan berikutnya dari barisan bilangan fibonacci berikut.</p>
-              <h5>Soal 3</h5>
-              <div class="my-1">
-                <p>
-                  10, 100, 110, 210,
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-3" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-3" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-3" autocomplete="off">
-                </p>
-              </div>
-              <p id="message-3"></p>
-              <div class="my-3">
-                <button class="btn btn-sm btn-success" id="check-3">Periksa</button>
-                <button class="btn btn-sm btn-danger next-soal disabled">Soal Selanjutnya</button>
-              </div>
-            </div>
-
-            <div class="tab-content" id="content-4">
-              <p>Tentukanlah 3 bilangan berikutnya dari barisan bilangan fibonacci berikut.</p>
-              <h5>Soal 4</h5>
-              <div class="my-1">
-                <p>
-                  6, 4, 10, 14, 24,
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-4" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-4" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-4" autocomplete="off">
-                </p>
-              </div>
-              <p id="message-4"></p>
-              <div class="my-4">
-                <button class="btn btn-sm btn-success" id="check-4">Periksa</button>
-                <button class="btn btn-sm btn-danger next-soal disabled">Soal Selanjutnya</button>
-              </div>
-            </div>
-
-            <div class="tab-content" id="content-5">
-              <p>Tentukanlah 3 bilangan berikutnya dari barisan bilangan fibonacci berikut.</p>
-              <h5>Soal 5</h5>
-              <div class="my-1">
-                <p>
-                  200, 201, 401, 602,
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-5" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-5" autocomplete="off">, 
-                  <input type="text" placeholder="...." class="form-control input-course user-answer-5" autocomplete="off">
-                </p>
-              </div>
-              <p id="message-5"></p>
-              <div class="my-5">
-                <button class="btn btn-sm btn-success" id="check-5">Periksa</button>
-                <!-- <button class="btn btn-sm btn-danger next-soal disabled">Soal Selanjutnya</button> -->
-              </div>
-            </div>
-
           </div>
         </div>
 
@@ -236,14 +155,14 @@
             <a href="/materi/sub-2/1/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
           </div>
           <div class="col-lg-6 col-sm-12 text-end">
-            <a href="/materi/sub-2/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+            <a href="/materi/sub-2/3/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
 
         <div class="responsive my-3">
           <div class="d-grid gap-2">
             <a href="/materi/sub-2/1/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
-            <a href="/materi/sub-2/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+            <a href="/materi/sub-2/3/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
       </div>
@@ -271,6 +190,7 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/components/modal.js"></script>
+  <script src="/materi/sub-2/2/soal.js"></script>
   <script src="/materi/sub-2/2/script.js"></script>
 
   <!-- Mathjax -->
