@@ -13,6 +13,7 @@
 
   <!-- Materi CSS -->
   <link rel="stylesheet" href="/assets/css/materi.css">
+  <link rel="stylesheet" href="/assets/css/utils-materi.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
@@ -168,6 +169,52 @@
               <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                 <p>Temukan tiga bilangan genap berurutan yang terdiri dari bilangan asli dan berjumlah 60.</p>
                 <p>Masalah tersebut dapat dipecahkan dengan menuliskan jumlah kumpulan tiga bilangan berurutan terkecil pada tabel, kemudian dilihat pola yang terbentuk pada tabel tersebut.</p>
+
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td>Kumpulan 1</td>
+                        <td>2 + 4 + 6 = 12</td>
+                        <td>Dimulai dari 2 $\rightarrow$ 2 = 1 $\times$ 2 </td>
+                      </tr>
+                      <tr>
+                        <td>Kumpulan 2</td>
+                        <td>4 + 6 + 8 = 18</td>
+                        <td>Dimulai dari 4 $\rightarrow$ 4 = 2 $\times$ 2 </td>
+                      </tr>
+                      <tr>
+                        <td>Kumpulan 3</td>
+                        <td>6 + 8 + 10 = 24</td>
+                        <td>Dimulai dari 6 $\rightarrow$ 6 = 3 $\times$ 2 </td>
+                      </tr>
+                      <tr>
+                        <td>Kumpulan 4</td>
+                        <td>8 + 10 + 12 = 30</td>
+                        <td>Dimulai dari 8 $\rightarrow$ 8 = 4 $\times$ 2 </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <p>Apabila memerhatikan pola yang terbentuk, yaitu 12, 18, 24, 30, kita dapat menentukan bahwa selisih jumlah dari tiga bilangan genap berurutan tersebut adalah 6. Sehingga barisan dapat dilanjutkan menjadi 12, 18, 24, 30, 36, 42, 48, 54, 60. Ternyata jumlah 60 ditemukan pada pola ke-9. Dengan kata lain, bilangan pertama dari kumpulan tiga bilangan itu adalah 9 $\times$ 2 = 18. Setelah coba dijumlahkan,  18 + 20 + 22 = 60. Ternyata benar jumlahnya adalah 60.</p>
+                <p>Jadi, jawaban bilangan genap berurutan yang jumlahnya sama dengan 60 adalah 18, 20, dan 22.</p>
+              </div>
+            </div>
+
+            <div class="card my-3 shadow">
+              <div class="card-header">
+                <h5>Pertanyaan</h5>
+              </div>
+              <div class="card-body">
+                <div class="quiz-container">
+                  <div id="quiz"></div>
+                </div>
+                <hr>
+                <div class="btn-action text-center">
+                  <button id="check" class="btn btn-lg btn-check-answer shadow" >Cek Jawaban</button>
+                  <button id="next" class="btn btn-md btn-secondary shadow" >Soal Selanjutnya</button>
+                </div>
               </div>
             </div>
           </div>
@@ -214,5 +261,17 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/components/modal.js"></script>
+  <script src="/materi/sub-2/4/soal.js"></script>
+  <script src="/materi/sub-2/4/script.js"></script>
+
+  <!-- Mathjax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </body>
 </html>

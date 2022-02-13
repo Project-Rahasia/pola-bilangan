@@ -74,7 +74,9 @@ document.querySelector(".accordion").innerHTML = `
         )}">Barisan Bilangan Lainnya</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/pages/materi-1/1/" class="list-course-child">Kuis</a>
+        <a href="/materi/sub-2/5/" class="list-course-child ${getChapChild(
+          "sub-2/5/"
+        )}">Kuis</a>
       </div>
     </div>
   </div>

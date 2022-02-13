@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pola Bilangan</title>
+  <link rel="shortcut icon" href="/logo-2.png" type="image/x-icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+  <!-- Materi CSS -->
+  <link rel="stylesheet" href="/assets/css/materi.css">
+  <style>
+    .slide {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.1s;
+    }
+
+    .active-slide {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .card {
+      position: relative;
+    }
+
+    .quiz-container {
+      position: relative;
+      height: 350px;
+      margin-top: 10px;
+    }
+
+    .question {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .answers {
+      margin-bottom: 20px;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .answers label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    @media only screen and(max-width: 720px) {
+      .quiz-container {
+        height: 900px;
+      }
+    }
+
+    @media only screen and(min-width: 480px) {
+      .quiz-container {
+        height: 1024px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+    
+  </nav>
+  
+  <!-- Main Content -->
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-md-3 col-sm-12 sidebar">
+        <div class="mt-3">
+          <h3>Daftar Materi</h3>
+          <hr>
+          <!-- List course -->
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            
+          </div>
+          <!-- End List course -->
+
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-12 mt-3 main-course">
+        <!-- Breadcrumb -->
+          <ol class="breadcrumb container">
+          <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+          <li class="breadcrumb-item"><a href="../../../pages/materi-1/0/">Bagian-Bagian Lingkaran</a></li>
+          <li class="breadcrumb-item active">Kuis</li>
+        </ol>
+        <hr>
+        <!-- End Breadcrumb -->
+        <div class="btn btn-md btn-info text-white fw-bold" id="time">00 : 00</div>
+        <div class="quiz-container">
+          <div id="quiz"></div>
+        </div>
+        <hr>
+        <div class="btn-action text-center">
+          <button id="back" class="btn btn-md btn-secondary shadow">Sebelumnya</button>
+          <button id="next" class="btn btn-md btn-success shadow" >Selanjutnya</button>
+          <button id="submit" class="btn btn-md btn-danger px-5 end shadow">Selesai</button>
+        </div>
+
+        <hr>
+        
+      </div>
+    </div>
+  </div>
+  <!-- End Main Content -->
+
+  <section id="footer">
+    
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/list-course.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/modal.js"></script>
+  <script src="/materi/sub-2/5/soal.js"></script>
+  <script>
+
+    let arrayJawaban = [];
+    let arrayJawaban_urut = [];
+    let rand_q = [];
+    let rand_q_fix = [];
+
+    let randomQuestion = questions.sort((a, b) => {
+      return 0.5 - Math.random();
+    });
+
+    let soalSession = JSON.parse(sessionStorage.getItem('soalSession'));
+
+    if (soalSession) {
+      var sliceQuestion;
+      sliceQuestion = soalSession;
+    } else {
+      var sliceQuestion;
+      // melakukan pemotongan array batasan soal yang ingin diambil
+      sliceQuestion = randomQuestion.slice(0, 10);
+      // console.log(sliceQuestion);
+      sessionStorage.setItem('soalSession', JSON.stringify(randomQuestion.slice(0, 30)));
+    }
+
+
+    function buildQuiz() {
+      const output = []
+      let currentNumber = 1
+
+      sliceQuestion.forEach((currentQuestion, questionNumber) => {
+        const answers = []
+
+        for(letter in currentQuestion.answers) {
+            answers.push(
+                `
+                  <label>
+                    <input type="radio" name="question${questionNumber}" value="${letter}" data="${currentNumber}" class="answer">
+                    <span>${letter}. ${currentQuestion.answers[letter]}<span>
+                  </label>
+                `
+            )
+        }
+
+        output.push(
+            `
+              <div class="slide">
+                <div class="question">${currentNumber}. ${currentQuestion.question}</div>
+                <div class="answers">${answers.join("")}</div>
+              </div>
+            `
+        )
+        
+        currentNumber++
+      })
+      questionContainer.innerHTML = output.join("")
+      
+    }
+
+
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active-slide')
+      slides[n].classList.add('active-slide')
+      
+      const answerContainers = questionContainer.querySelectorAll('.answers');
+      const answerContainer = answerContainers[currentSlide];
+
+      const selector = `input[name=question${currentSlide}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      if (userAnswer !== undefined) {
+        var elements = document.querySelectorAll(`input[name='question${currentSlide}']`);
+        elements.forEach((element) => {
+          if (element.value == userAnswer) {
+            sessionStorage.setItem(element.name, `${element.name},${element.value}`);
+          }
+        });
+      }
+
+      
+      currentSlide = n
+      if(currentSlide === 0) {
+        backButton.style.display = "none"
+      } else {
+        backButton.style.display = "inline-block"
+      }
+
+      if(currentSlide === slides.length - 1) {
+        nextButton.style.display = "none"
+        submitButton.style.display = "inline-block"
+      } else {
+        nextButton.style.display = "inline-block"
+        submitButton.style.display = "none"
+      }
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1)
+    }
+
+    function backSlide() {
+      showSlide(currentSlide - 1)
+    }
+
+    function paginationSlide(n) {
+      showSlide(n)
+    }
+
+    let questionContainer = document.querySelector("#quiz")
+    let nextButton = document.querySelector("#next") 
+    let backButton = document.querySelector("#back") 
+    let submitButton = document.querySelector("#submit")
+
+    buildQuiz()
+
+    const slides = document.querySelectorAll(".slide")
+    let currentSlide = 0
+
+    showSlide(currentSlide)
+    nextButton.addEventListener("click", nextSlide)
+    backButton.addEventListener("click", backSlide)
+    submitButton.addEventListener("click", result)
+
+    function result() {
+      let correct = 0;
+      let wrong = 0;
+      
+      const answerContainers = questionContainer.querySelectorAll(".answers");
+      sliceQuestion.forEach((currentQuestion, questionNumber) => {
+        const answerContainer = answerContainers[questionNumber];
+
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+        arrayJawaban.push(userAnswer);
+
+        if (userAnswer === currentQuestion.correctAnswer) {
+          correct++;
+        } else {
+          wrong++;
+        }
+
+        sessionStorage.setItem('length', sliceQuestion.length);
+        sessionStorage.setItem('wrong', wrong);
+        sessionStorage.setItem('correct', correct);
+        sessionStorage.removeItem('soalSession');
+        for (let i = 0; i < rand_q.length; i++) {
+          for (let j = 0; j < rand_q.length; j++) {
+            if (i == rand_q[j]) {
+              arrayJawaban_urut.push(arrayJawaban[j]);
+              rand_q_fix.push(rand_q[j]);
+            }
+          }
+        }
+        sessionStorage.setItem('jawaban', JSON.stringify(arrayJawaban_urut));
+        for (i = 0; i <= 29; i++) {
+          sessionStorage.removeItem(`question${i}`);
+        }
+        location.href = './hasil.html';
+      });
+    }
+
+    var timer = parseInt(sessionStorage.getItem('timer'));
+    var end = timer + 1000 * 60 * 60;
+    var countDownDate = end;
+
+    if (!countDownDate) {
+      parent.location.href = './index.html';
+    }
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Output the result in an element with id="demo"
+      document.getElementById('time').innerHTML =
+        minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
+      // If the count down is over, write some text
+      // console.log(distance);
+      if (distance < 0) {
+        results();
+        localStorage.setItem('tampil', 'dissappear');
+        clearInterval(x);
+        parent.location.href = './hasil.html';
+      }
+    }, 1000);
+
+    if (soalSession) {
+      var sessCheckJawaban = [];
+      for (i = 0; i <= 9; i++) {
+        sessCheckJawaban[i] = sessionStorage.getItem(`question${i}`);
+        if (sessCheckJawaban[i] != null) {
+          const splitCheck = sessCheckJawaban[i].split(',');
+          console.log(splitCheck);
+          var elements = document.querySelectorAll(`input[name=${splitCheck[0]}]`);
+          elements.forEach((element) => {
+            if (element.value == splitCheck[1]) {
+              // console.log(element);
+              element.checked = true;
+            }
+          });
+        } else {
+          console.log('something went wrong');
+        }
+      }
+    }
+
+  </script>
+  <!-- Mathjax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</body>
+</html>
