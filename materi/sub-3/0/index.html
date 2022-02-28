@@ -38,34 +38,46 @@
         <!-- Breadcrumb -->
           <ol class="breadcrumb container">
           <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-          <li class="breadcrumb-item"><a href="/materi/sub-2/0/">Menentukan Persamaan dari Suatu Barisan Bilangan</a></li>
-          <li class="breadcrumb-item active">Kuis</li>
+          <li class="breadcrumb-item"><a href="/materi/sub-3/0/">Menentukan Persamaan dari Suatu Konfigurasi Objek
+          </a></li>
+          <li class="breadcrumb-item active">Pendahuluan</li>
         </ol>
         <hr>
         <!-- End Breadcrumb -->
 
-        <h1>Kuis</h1>
-        <div class="text-center my-5">
-          <p class="fs-5">Jawaban benar: <span id="correct"></span>, Jawaban Salah: <span id="wrong"></span></p>
-          <h1>Nilai Anda</h1>
-          <h1 class="score"></h1>
-          <a href="./" class="btn btn-sm btn-info text-white">Kerjakan Ulang</a>
+        <h1>Pendahuluan</h1>
+        
+        <div class="card my-3 shadow">
+          <div class="card-body course">
+            <h5>Tujuan Pembelajaran</h5>
+            <p>
+              <ul>
+                <li>Siswa mampu menentukan pola dari suatu konfigurasi objek</li>
+                <li>Siswa mampu menentukan suku barisan tertentu dari suatu konfigurasi objek</li>
+                <li>Siswa mampu menyelesaikan masalah yang berkaitan dengan suatu konfigurasi objek</li>
+              </ul>
+            </p>
+          </div>
         </div>
+
+        <p>Suatu konfigurasi objek yang berurutan membentuk barisan yang memiliki pola bilangan. Cara untuk menentukan pola bilangan tersebut adalah dengan memperhatikan baris konfigurasi objek tersebut, temukan perubahannya, kemudian membuat persamaannya.</p>
+
+        <p>Pada materi berikut akan belajar beberapa contoh pola konfigurasi objek.</p>
 
         <hr>
         <div class="row web my-3">
           <div class="col-lg-6 col-sm-12">
-            <a href="/materi/sub-2/4/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
+            <a href="/materi/sub-2/5/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
           </div>
           <div class="col-lg-6 col-sm-12 text-end">
-            <a href="/materi/sub-3/0/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+            <a href="/materi/sub-3/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
 
         <div class="responsive my-3">
           <div class="d-grid gap-2">
-            <a href="/materi/sub-2/4/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
-            <a href="/materi/sub-3/0/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+            <a href="/materi/sub-2/5/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
+            <a href="/materi/sub-3/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
       </div>
@@ -93,16 +105,5 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/components/modal.js"></script>
-  <script>
-    const length = sessionStorage.getItem('length');
-    const correct = sessionStorage.getItem('correct');
-    const wrong = sessionStorage.getItem('wrong');
-
-    let score = (correct/length) * 100;
-
-    document.querySelector(".score").innerHTML = Math.ceil(score);
-    document.querySelector("#correct").innerHTML = correct;
-    document.querySelector("#wrong").innerHTML = wrong;
-  </script>
 </body>
 </html>

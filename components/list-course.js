@@ -89,10 +89,19 @@ document.querySelector(".accordion").innerHTML = `
       Menentukan Persamaan dari Suatu Konfigurasi Objek
     </button>
   </h2>
-  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+  <div id="flush-collapseThree" class="accordion-collapse collapse  ${getChapClass(
+    "sub-3"
+  )}" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
     <div class="accordion-body">
       <div class="list-course mb-3">
-        <a href="/pages/materi-1/1/" class="list-course-child">Pola Bilangan Persegi</a>
+        <a href="/materi/sub-3/0/" class="list-course-child ${getChapChild(
+          "sub-3/0/"
+        )}">Pendahuluan</a>
+      </div>
+      <div class="list-course mb-3">
+        <a href="/materi/sub-3/1/" class="list-course-child ${getChapChild(
+          "sub-3/1/"
+        )}">Pola Bilangan Persegi</a>
       </div>
       <div class="list-course mb-3">
         <a href="/pages/materi-1/1/" class="list-course-child">Pola Bilangan Persegi Panjang</a>
