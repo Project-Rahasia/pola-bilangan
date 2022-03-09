@@ -19,6 +19,11 @@
 
 .quiz-container {
   position: relative;
+  height: 180px;
+  margin-top: 10px;
+}
+.quiz-container-2 {
+  position: relative;
   height: 350px;
   margin-top: 10px;
 }

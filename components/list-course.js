@@ -104,10 +104,14 @@ document.querySelector(".accordion").innerHTML = `
         )}">Pola Bilangan Persegi</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/pages/materi-1/1/" class="list-course-child">Pola Bilangan Persegi Panjang</a>
+        <a href="/materi/sub-3/2/" class="list-course-child ${getChapChild(
+          "sub-3/2/"
+        )}">Pola Bilangan Persegi Panjang</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/pages/materi-1/1/" class="list-course-child">Pola Bilangan Segitiga</a>
+        <a href="/materi/sub-3/3/" class="list-course-child ${getChapChild(
+          "sub-3/3/"
+        )}">Pola Bilangan Segitiga</a>
       </div>
       <div class="list-course mb-3">
         <a href="/pages/materi-1/1/" class="list-course-child">Pola Konfigurasi Objek Lainnya</a>
