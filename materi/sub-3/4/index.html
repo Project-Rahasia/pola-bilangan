@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pola Bilangan</title>
+  <link rel="shortcut icon" href="/logo-2.png" type="image/x-icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+  <!-- Materi CSS -->
+  <link rel="stylesheet" href="/assets/css/materi.css">
+  <link rel="stylesheet" href="/assets/css/utils-materi.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+    
+  </nav>
+  
+  <!-- Main Content -->
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-md-3 col-sm-12 sidebar">
+        <div class="mt-3">
+          <h3>Daftar Materi</h3>
+          <hr>
+          <!-- List course -->
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            
+          </div>
+          <!-- End List course -->
+
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-12 mt-3 main-course">
+        <!-- Breadcrumb -->
+          <ol class="breadcrumb container">
+          <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+          <li class="breadcrumb-item"><a href="/materi/sub-3/0/">Menentukan Persamaan dari Suatu Konfigurasi Objek
+          </a></li>
+          <li class="breadcrumb-item active">PolaKonfigurasi Objek Lainnya</li>
+        </ol>
+        <hr>
+        <!-- End Breadcrumb -->
+
+        <h1>Pola Konfigurasi Objek Lainnya</h1>
+        
+        <p>Selain pola-pola konfigurasi objek yang telah disebutkan sebelumnya, terdapat banyak pola lain yang sangat beragam.  Oleh karena itu, dibutuhkan kecermatan dalam mengamati pola yang terdapat pada suatu konfigurasi objek. Beberapa pola konfigurasi objek tersebut terdapat pada contoh-contoh soal berikut.</p>
+
+        <div class="card">
+          <div class="card-body">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="contoh1-tab" data-bs-toggle="tab" data-bs-target="#contoh1" type="button" role="tab" aria-controls="contoh1" aria-selected="true">Contoh 1</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contoh2-tab" data-bs-toggle="tab" data-bs-target="#contoh2" type="button" role="tab" aria-controls="contoh2" aria-selected="false">Contoh 2</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="contoh1" role="tabpanel" aria-labelledby="contoh1-tab">
+                <p>Perhatikan pola berikut!</p>
+
+                <div class="row justify-content-center text-center my-3">
+                  <div class="col-md-5 col-sm-12">
+                    <img src="/materi/sub-3/4/img/gambar-9.png" alt="Uang Logam" class="img-fluid">
+                    <small class="src-text d-block mt-2">Gambar 9. Pola contoh soal 1</small>
+                  </div>
+                </div>
+
+                <p>Jika susunan objek pada Gambar 9 diteruskan, tentukanlah banyak lingkaran pada susunan ke 5, 6, dan 7!</p>
+                <p>Untuk dapat menjawab soal di atas, kita terlebih dahulu harus mengetahui persamaan umum dari pola pada Gambar 9. Seperti contoh-contoh sebelumnya, persamaan umum pada pola ini juga dapat ditentukan dengan mengamati setiap susunan pada pola tersebut yang dijabarkan pada Tabel 7 berikut.</p>
+
+                <div class="table-responsive">
+                  <small class="src-text text-center d-block">Tabel 7. Pola contoh soal 1</small>
+                  <table class="table table-bordered text-center">
+                    <thead>
+                      <tr>
+                        <th>Susunan ke-</th>
+                        <th>Konfigurasi Objek</th>
+                        <th>Banyak Lingkaran</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td><img src="/materi/sub-3/4/img/table-7-1.png" alt="img" class="img-fluid" width="30"></td>
+                        <td>$1$</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td><img src="/materi/sub-3/4/img/table-7-2.png" alt="img" class="img-fluid" width="70"></td>
+                        <td>$1 + 4 = 5$</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td><img src="/materi/sub-3/4/img/table-7-3.png" alt="img" class="img-fluid" width="90"></td>
+                        <td>$5 + 4 = 9$</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td><img src="/materi/sub-3/4/img/table-7-4.png" alt="img" class="img-fluid" width="100"></td>
+                        <td>$9 + 4 = 13$</td>
+                      </tr>
+                      <tr>
+                        <td>$n$</td>
+                        <td>...</td>
+                        <td>$U_{n-1} + 4 = U_{n}$</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>Berdasarkan Tabel 7, dapat disimpulkan bahwa persamaan umum pola konfigurasi objek pada Gambar 9 adalah $U_{n-1} + 4 = U_{n}$. Setelah persamaan umum didapatkan, barulah kita dapat menghitung banyak lingkaran pada susunan ke 5, 6, dan 7 dengan cara berikut.</p>
+
+                <ul>
+                  <li>
+                    <span>
+                      Susunan ke-5 <br>
+                      $U_{n} = U_{5}$ <br>
+                      $U_{n-1} = U_{4} = 13$ <br><br>
+                      $U_{n} = U_{n-1} + 4$ <br>
+                      $U_{5} = U_{4} + 4$ <br>
+                      $U_{5} = 13 + 4$ <br>
+                      $U_{5} = 17$ <br>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      Susunan ke-6 <br>
+                      $U_{n} = U_{6}$ <br>
+                      $U_{n-1} = U_{5} = 17$ <br><br>
+                      $U_{n} = U_{n-1} + 4$ <br>
+                      $U_{6} = U_{5} + 4$ <br>
+                      $U_{6} = 17 + 4$ <br>
+                      $U_{6} = 21$ <br>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      Susunan ke-7 <br>
+                      $U_{n} = U_{7}$ <br>
+                      $U_{n-1} = U_{6} = 21$ <br><br>
+                      $U_{n} = U_{n-1} + 4$ <br>
+                      $U_{7} = U_{6} + 4$ <br>
+                      $U_{7} = 21 + 4$ <br>
+                      $U_{7} = 25$ <br>
+                    </span>
+                  </li>
+                </ul>
+                <p>Jadi, banyak lingkaran pada susunan ke- 5, 6, dan 7 berturut-turut adalah 17, 21, dan 25.</p>
+              </div>
+              <div class="tab-pane fade" id="contoh2" role="tabpanel" aria-labelledby="contoh2-tab">
+                <p>Perhatikan pola berikut!</p>
+                
+                <div class="row justify-content-center text-center my-3">
+                  <div class="col-md-5 col-sm-12">
+                    <img src="/materi/sub-3/4/img/gambar-10.png" alt="Uang Logam" class="img-fluid">
+                    <small class="src-text d-block mt-2">Gambar 10. Pola stik</small>
+                  </div>
+                </div>
+
+                <p>Tiap-tiap segitiga pada Gambar 10 terbentuk dari 3 stik. Dengan memerhatikan pola pada Gambar 10, tentukan banyak stik pada susunan ke-10 dan susunan ke-100!</p>
+
+                <p>Untuk dapat menjawab soal di atas, kita terlebih dahulu harus mengetahui persamaan umum dari pola pada Gambar 10. Seperti contoh-contoh sebelumnya, persamaan umum pada pola ini juga dapat ditentukan dengan mengamati setiap susunan pada pola tersebut yang dijabarkan pada Tabel 8 berikut.</p>
+
+                <div class="table-responsive">
+                  <small class="src-text text-center d-block">Tabel 8. Pola stik</small>
+                  <table class="table table-bordered text-center">
+                    <thead>
+                      <tr>
+                        <th>Susunan ke-</th>
+                        <th>Konfigurasi Objek</th>
+                        <th>Banyak Lingkaran</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td><img src="/materi/sub-3/4/img/table-8-1.png" alt="img" class="img-fluid" width="45"></td>
+                        <td>$3 = 2 \times 1 + 1$</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td><img src="/materi/sub-3/4/img/table-8-2.png" alt="img" class="img-fluid" width="70"></td>
+                        <td>$5 = 2 \times 2 + 1$</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td><img src="/materi/sub-3/4/img/table-8-3.png" alt="img" class="img-fluid" width="90"></td>
+                        <td>$7 = 2 \times 3 + 1$</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td><img src="/materi/sub-3/4/img/table-8-4.png" alt="img" class="img-fluid" width="100"></td>
+                        <td>$9 = 2 \times 4 + 1$</td>
+                      </tr>
+                      <tr>
+                        <td>$n$</td>
+                        <td>...</td>
+                        <td>$U_{n-1} = 2n + 1$</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <p>Berdasarkan Tabel 8, dapat disimpulkan bahwa persamaan umum pola konfigurasi objek pada Gambar 10 adalah $U_{n-1} = 2n + 1$. Setelah persamaan umum didapatkan, barulah kita dapat menghitung banyak stik pada susunan ke- 10 dan 100 dengan cara berikut.</p>
+
+                <ul>
+                  <li>
+                    <span>
+                      Susunan ke-10 <br>
+                      $n = 10$ <br>
+                      $U_{n} = 2n + 1$ <br>
+                      $U_{10} = 2 \times 10 + 1$ <br>
+                      $U_{10} = 21$ <br>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      Susunan ke-100 <br>
+                      $n = 100$ <br>
+                      $U_{n} = 2n + 1$ <br>
+                      $U_{100} = 2 \times 100 + 1$ <br>
+                      $U_{100} = 201$ <br>
+                    </span>
+                  </li>
+                </ul>
+
+                <p>Jadi, banyak stik pada susunan ke-10 dan 100 berturut-turut adalah 21 dan 201</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card my-3 shadow">
+          <div class="card-header">
+            <h5>Pertanyaan</h5>
+          </div>
+          <div class="card-body">
+            <div class="quiz-container-2">
+              <div id="quiz"></div>
+            </div>
+            <hr>
+            <div class="btn-action text-center">
+              <button id="check" class="btn btn-lg btn-check-answer shadow" >Cek Jawaban</button>
+              <button id="next" class="btn btn-md btn-secondary shadow" >Soal Selanjutnya</button>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <div class="row web my-3">
+          <div class="col-lg-6 col-sm-12">
+            <a href="/materi/sub-3/3/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
+          </div>
+          <div class="col-lg-6 col-sm-12 text-end">
+            <a href="/materi/sub-3/5/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <div class="responsive my-3">
+          <div class="d-grid gap-2">
+            <a href="/materi/sub-3/3/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
+            <a href="/materi/sub-3/5/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Main Content -->
+
+  <section id="footer">
+    
+  </section>
+
+  <!-- Float Button -->
+  <a href="#" class="float" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fa fa-plus my-float"></i>
+  </a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/list-course.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/modal.js"></script>
+  <script src="/materi/sub-3/4/soal.js"></script>
+  <script src="/materi/sub-3/4/script.js"></script>
+
+  <!-- Mathjax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</body>
+</html>

@@ -38,32 +38,34 @@
         <!-- Breadcrumb -->
           <ol class="breadcrumb container">
           <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-          <li class="breadcrumb-item"><a href="/materi/sub-1/0/">Pendahuluan</a></li>
-          <li class="breadcrumb-item active">Kompetensi Dasar</li>
+          <li class="breadcrumb-item"><a href="/materi/sub-2/0/">Menentukan Persamaan dari Suatu Barisan Bilangan</a></li>
+          <li class="breadcrumb-item active">Kuis</li>
         </ol>
         <hr>
         <!-- End Breadcrumb -->
 
-        <h1>Kompetensi Dasar</h1>
-        <p>
-          3.1.	Membuat generalisasi dari pola pada barisan bilangan dan barisan konfigurasi objek. <br>
-          3.2.	Menyelesaikan masalah yang berkaitan dengan pola pada barisan bilangan dan barisan konfigurasi objek.
-        </p>
-        <br><br><br><br><br><br><br><br><br><br>
+        <h1>Kuis</h1>
+        <div class="text-center my-5">
+          <p class="fs-5">Jawaban benar: <span id="correct"></span>, Jawaban Salah: <span id="wrong"></span></p>
+          <h1>Nilai Anda</h1>
+          <h1 class="score"></h1>
+          <a href="./" class="btn btn-sm btn-info text-white">Kerjakan Ulang</a>
+        </div>
+
         <hr>
         <div class="row web my-3">
           <div class="col-lg-6 col-sm-12">
-            <!-- <a href="/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a> -->
+            <a href="/materi/sub-3/4/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
           </div>
           <div class="col-lg-6 col-sm-12 text-end">
-            <a href="/materi/sub-1/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+            <a href="/materi/sub-4/0/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
 
         <div class="responsive my-3">
           <div class="d-grid gap-2">
-            <!-- <a href="/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a> -->
-            <a href="/materi/sub-1/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+            <a href="/materi/sub-3/4/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
+            <a href="/materi/sub-4/0/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
       </div>
@@ -91,5 +93,16 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/components/modal.js"></script>
+  <script>
+    const length = sessionStorage.getItem('length-2');
+    const correct = sessionStorage.getItem('correct-2');
+    const wrong = sessionStorage.getItem('wrong-2');
+
+    let score = (correct/length) * 100;
+
+    document.querySelector(".score").innerHTML = Math.ceil(score);
+    document.querySelector("#correct").innerHTML = correct;
+    document.querySelector("#wrong").innerHTML = wrong;
+  </script>
 </body>
 </html>

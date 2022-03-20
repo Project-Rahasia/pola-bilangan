@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pola Bilangan</title>
+  <link rel="shortcut icon" href="/logo-2.png" type="image/x-icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+  <!-- Materi CSS -->
+  <link rel="stylesheet" href="/assets/css/materi.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+    
+  </nav>
+  
+  <!-- Main Content -->
+  <div class="container my-5">
+    <div class="card my-5 text-center h-100">
+      <div class="card-body">
+        <h4 id="nama" class="display-4"></h4>
+        <p class="fs-3">Jawaban benar: <span id="correct"></span>, Jawaban Salah: <span id="wrong"></span></p>
+        <h1>Nilai Anda</h1>
+        <h1 class="score display-1"></h1>
+
+        <hr class="mt-4">
+        <a href="./" class="btn btn-md btn-info text-white">Kerjakan Ulang</a>
+        <a href="/pages/materi-1/0/" class="btn btn-md btn-danger text-white">Kembali Ke Materi</a>
+      </div>
+    </div>
+  </div>
+  <!-- End Main Content -->
+
+  <section id="footer" class="mt-5">
+    
+  </section>
+
+  <!-- Float Button -->
+  <a href="#" class="float" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fa fa-plus my-float"></i>
+  </a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/list-course.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/modal.js"></script>
+  <script>
+    const length = sessionStorage.getItem('length-3');
+    const correct = sessionStorage.getItem('correct-3');
+    const wrong = sessionStorage.getItem('wrong-3');
+    const nama = sessionStorage.getItem('nama');
+
+    let score = (correct/length) * 100;
+
+    document.querySelector(".score").innerHTML = Math.ceil(score);
+    document.querySelector("#correct").innerHTML = correct;
+    document.querySelector("#wrong").innerHTML = wrong;
+    document.querySelector("#nama").innerHTML = nama;
+  </script>
+</body>
+</html>

@@ -35,7 +35,7 @@
 
     .quiz-container {
       position: relative;
-      height: 350px;
+      height: 420px;
       margin-top: 10px;
     }
 
@@ -130,7 +130,7 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/components/modal.js"></script>
-  <script src="/materi/sub-2/5/soal.js"></script>
+  <script src="/materi/sub-3/5/soal.js"></script>
   <script>
 
     let arrayJawaban = [];
@@ -142,7 +142,7 @@
       return 0.5 - Math.random();
     });
 
-    let soalSession = JSON.parse(sessionStorage.getItem('soalSession-1'));
+    let soalSession = JSON.parse(sessionStorage.getItem('soalSession-2'));
 
     if (soalSession) {
       var sliceQuestion;
@@ -152,7 +152,7 @@
       // melakukan pemotongan array batasan soal yang ingin diambil
       sliceQuestion = randomQuestion.slice(0, 10);
       // console.log(sliceQuestion);
-      sessionStorage.setItem('soalSession-1', JSON.stringify(randomQuestion.slice(0, 30)));
+      sessionStorage.setItem('soalSession-2', JSON.stringify(randomQuestion.slice(0, 30)));
     }
 
 
@@ -167,7 +167,7 @@
             answers.push(
                 `
                   <label>
-                    <input type="radio" name="question-satu${questionNumber}" value="${letter}" data="${currentNumber}" class="answer">
+                    <input type="radio" name="question-dua${questionNumber}" value="${letter}" data="${currentNumber}" class="answer">
                     <span>${letter}. ${currentQuestion.answers[letter]}<span>
                   </label>
                 `
@@ -197,11 +197,11 @@
       const answerContainers = questionContainer.querySelectorAll('.answers');
       const answerContainer = answerContainers[currentSlide];
 
-      const selector = `input[name=question-satu${currentSlide}]:checked`;
+      const selector = `input[name=question-dua${currentSlide}]:checked`;
       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
       if (userAnswer !== undefined) {
-        var elements = document.querySelectorAll(`input[name='question-satu${currentSlide}']`);
+        var elements = document.querySelectorAll(`input[name='question-dua${currentSlide}']`);
         elements.forEach((element) => {
           if (element.value == userAnswer) {
             sessionStorage.setItem(element.name, `${element.name},${element.value}`);
@@ -251,9 +251,9 @@
     showSlide(currentSlide)
     nextButton.addEventListener("click", nextSlide)
     backButton.addEventListener("click", backSlide)
-    submitButton.addEventListener("click", result)
+    submitButton.addEventListener("click", results)
 
-    function result() {
+    function results() {
       let correct = 0;
       let wrong = 0;
       
@@ -261,7 +261,7 @@
       sliceQuestion.forEach((currentQuestion, questionNumber) => {
         const answerContainer = answerContainers[questionNumber];
 
-        const selector = `input[name=question-satu${questionNumber}]:checked`;
+        const selector = `input[name=question-dua${questionNumber}]:checked`;
         const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
         arrayJawaban.push(userAnswer);
@@ -272,10 +272,10 @@
           wrong++;
         }
 
-        sessionStorage.setItem('length-1', sliceQuestion.length);
-        sessionStorage.setItem('wrong-1', wrong);
-        sessionStorage.setItem('correct-1', correct);
-        sessionStorage.removeItem('soalSession-1');
+        sessionStorage.setItem('length-2', sliceQuestion.length);
+        sessionStorage.setItem('wrong-2', wrong);
+        sessionStorage.setItem('correct-2', correct);
+        sessionStorage.removeItem('soalSession-2');
         for (let i = 0; i < rand_q.length; i++) {
           for (let j = 0; j < rand_q.length; j++) {
             if (i == rand_q[j]) {
@@ -284,15 +284,15 @@
             }
           }
         }
-        sessionStorage.setItem('jawaban-1', JSON.stringify(arrayJawaban_urut));
+        sessionStorage.setItem('jawaban-2', JSON.stringify(arrayJawaban_urut));
         for (i = 0; i <= 29; i++) {
-          sessionStorage.removeItem(`question-satu${i}`);
+          sessionStorage.removeItem(`question-dua${i}`);
         }
         location.href = './hasil.html';
       });
     }
 
-    var timer = parseInt(sessionStorage.getItem('timer-1'));
+    var timer = parseInt(sessionStorage.getItem('timer-2'));
     var end = timer + 1000 * 60 * 60;
     var countDownDate = end;
 
@@ -330,7 +330,7 @@
     if (soalSession) {
       var sessCheckJawaban = [];
       for (i = 0; i <= 9; i++) {
-        sessCheckJawaban[i] = sessionStorage.getItem(`question-satu${i}`);
+        sessCheckJawaban[i] = sessionStorage.getItem(`question-dua${i}`);
         if (sessCheckJawaban[i] != null) {
           const splitCheck = sessCheckJawaban[i].split(',');
           console.log(splitCheck);

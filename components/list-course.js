@@ -26,11 +26,16 @@ document.querySelector(".accordion").innerHTML = `
       <div class="list-course mb-3">
         <a href="/materi/sub-1/0/" class="list-course-child ${getChapChild(
           "sub-1/0/"
-        )}">Peta Konsep</a>
+        )}">Kompetensi Dasar</a>
       </div>
       <div class="list-course mb-3">
         <a href="/materi/sub-1/1/" class="list-course-child ${getChapChild(
           "sub-1/1/"
+        )}">Peta Konsep</a>
+      </div>
+      <div class="list-course mb-3">
+        <a href="/materi/sub-1/2/" class="list-course-child ${getChapChild(
+          "sub-1/2/"
         )}">Pendahuluan</a>
       </div>
     </div>
@@ -114,12 +119,31 @@ document.querySelector(".accordion").innerHTML = `
         )}">Pola Bilangan Segitiga</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/pages/materi-1/1/" class="list-course-child">Pola Konfigurasi Objek Lainnya</a>
+        <a href="/materi/sub-3/4/" class="list-course-child ${getChapChild(
+          "sub-3/4/"
+        )}">Pola Konfigurasi Objek Lainnya</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/pages/materi-1/1/" class="list-course-child">Kuis</a>
+        <a href="/materi/sub-3/5/" class="list-course-child ${getChapChild(
+          "sub-3/5/"
+        )}">Kuis</a>
       </div>
     </div>
   </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button ${getCollapsed(
+        "sub-4"
+      )}" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+        Latihan
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <div class="list-course mb-3">
+          <a href="/materi/sub-4/0/" class="list-course-child">Latihan</a>
+        </div>
+      </div>
+    </div>
 </div>
 `;

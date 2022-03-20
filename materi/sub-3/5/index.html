@@ -38,34 +38,32 @@
         <!-- Breadcrumb -->
           <ol class="breadcrumb container">
           <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-          <li class="breadcrumb-item"><a href="/materi/sub-1/0/">Pendahuluan</a></li>
-          <li class="breadcrumb-item active">Kompetensi Dasar</li>
+          <li class="breadcrumb-item"><a href="/materi/sub-2/0/">Menentukan Persamaan dari Suatu Barisan Bilangan</a></li>
+          <li class="breadcrumb-item active">Kuis</li>
         </ol>
         <hr>
         <!-- End Breadcrumb -->
 
-        <h1>Kompetensi Dasar</h1>
-        <p>
-          3.1.	Membuat generalisasi dari pola pada barisan bilangan dan barisan konfigurasi objek. <br>
-          3.2.	Menyelesaikan masalah yang berkaitan dengan pola pada barisan bilangan dan barisan konfigurasi objek.
-        </p>
-        <br><br><br><br><br><br><br><br><br><br>
-        <hr>
-        <div class="row web my-3">
-          <div class="col-lg-6 col-sm-12">
-            <!-- <a href="/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a> -->
-          </div>
-          <div class="col-lg-6 col-sm-12 text-end">
-            <a href="/materi/sub-1/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
-          </div>
+        <h1>Kuis</h1>
+        <p>Kuis ini bertujuan untuk menguji pengetahuan Anda tentang materi yang telah dipelajari di modul ini.</p>
+
+        <h5>Autran</h5>
+        
+        <div class="course">
+          <ul>
+            <li>Terdapat 10 pertanyaan yang harus dikerjakan dalam kuis ini</li>
+            <li>Pilihlah dengan jawaban yang benar.</li>
+            <li>Tekan tombol <span class="btn btn-sm btn-success">Selanjutnya</span> untuk berpindah kesoal selanjutnya.</li>
+            <li>Tekan tombol <span class="btn btn-sm btn-secondary">Sebelumnya</span> untuk berpindah kesoal sebelumnya.</li>
+            <li>Tekan tombol <span class="btn btn-sm btn-danger">Selesai</span> untuk mengakhiri menjawab soal, halaman akan menampilkan nilai.</li>
+          </ul>
         </div>
 
-        <div class="responsive my-3">
-          <div class="d-grid gap-2">
-            <!-- <a href="/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a> -->
-            <a href="/materi/sub-1/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
-          </div>
+        <p>Selamat Mengerjakan!</p>
+        <div class="text-center">
+          <button type="button" id="start" class="btn btn-md btn-primary py-1 px-4">Mulai</button>
         </div>
+        <hr>
       </div>
     </div>
   </div>
@@ -91,5 +89,14 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/components/modal.js"></script>
+  <script>
+    const start = document.getElementById("start");
+
+    start.addEventListener('click', () => {
+      var now = Date.now();
+      sessionStorage.setItem('timer-2', now);
+      location.href = './kuis.html';
+    });
+  </script>
 </body>
 </html>

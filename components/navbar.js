@@ -9,7 +9,7 @@ document.querySelector(".navbar").innerHTML = `
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ms-auto">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+        <a class="nav-link active" aria-current="page" href="/">Beranda</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Tentang</a>
