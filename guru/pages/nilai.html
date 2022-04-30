@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Guru</title>
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/style-guru.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+</head>
+
+<body id="body-pd">
+
+  <header class="header" id="header">
+    <div class="header_toggle"> 
+      <i class='bx bx-menu' id="header-toggle"></i> 
+    </div>
+    <!-- <div class="header_img"> 
+      <img src="https://i.imgur.com/hczKIze.jpg" alt=""> 
+    </div> -->
+  </header>
+  <div class="l-navbar" id="nav-bar">
+    <nav id="nav">
+      
+    </nav>
+  </div>
+  <!--Container Main start-->
+  <div class="height-100">
+    <h4>Daftar Nilai</h4>
+
+    <div class="content">
+      <div class="content-button my-3">
+        <button class="btn btn-primary" id="c1">Kuis 1</button>
+        <button class="btn btn-primary" id="c2">Kuis 2</button>
+        <button class="btn btn-primary" id="c3">Latihan</button>
+      </div>
+      <div class="tabcontent" id="content1">
+        <h3>Kuis 1</h3>
+        <table class="table table-striped" id="table-1">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Kelas</th>
+              <th>Nilai</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="kuis-1">
+    
+          </tbody>
+        </table>
+      </div>
+      <div class="tabcontent" id="content2">
+        <h3>Kuis 2</h3>
+        <table class="table table-striped" id="table-2">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Kelas</th>
+              <th>Nilai</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="kuis-2">
+    
+          </tbody>
+        </table>
+      </div>
+      <div class="tabcontent" id="content3">
+        <h3>Latihan</h3>
+        <table class="table table-striped" id="table-3">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Kelas</th>
+              <th>Nilai</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="latihan">
+    
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    
+  </div>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="/assets/js/script-guru.js"></script>
+  <script src="/guru/components/sidebar.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+  <script type="module">
+    const kuisSatu = document.querySelector("#kuis-1");
+    const kuisDua = document.querySelector("#kuis-2");
+    const latihan = document.querySelector("#latihan");
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDH7bgWPFW34K8ZzCASxPzDKN0a--Xif54",
+      authDomain: "polabilangan-b7b4d.firebaseapp.com",
+      projectId: "polabilangan-b7b4d",
+      storageBucket: "polabilangan-b7b4d.appspot.com",
+      messagingSenderId: "763763673642",
+      appId: "1:763763673642:web:4fee9323444bfe01661153"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getFirestore, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+
+    const db = getFirestore(app);
+
+    // Get Kuis 1
+    async function getKuisSatu() {
+      const querySnapshot = await getDocs(collection(db, "kuis-1"));
+      let i = 1;
+      querySnapshot.forEach((doc) => {
+        let ket = doc.data().nilai >= 70 ? 'Lulus' : 'Tidak Lulus';
+        let tr = document.createElement('tr')
+        tr.innerHTML = `
+          <td>${i++}</td>
+          <td>${doc.data().nama}</td>
+          <td>${doc.data().kelas}</td>
+          <td>${doc.data().nilai}</td>
+          <td>${ket}</td>
+        `;
+        kuisSatu.appendChild(tr)
+      });
+
+      $(document).ready( function () {
+        $('#table-1').DataTable();
+      });
+    }
+
+    // Get Kuis 2
+    async function getKuisDua() {
+      const querySnapshot = await getDocs(collection(db, "kuis-2"));
+      let i = 1;
+      querySnapshot.forEach((doc) => {
+        let ket = doc.data().nilai >= 70 ? 'Lulus' : 'Tidak Lulus';
+        let tr = document.createElement('tr')
+        tr.innerHTML = `
+          <td>${i++}</td>
+          <td>${doc.data().nama}</td>
+          <td>${doc.data().kelas}</td>
+          <td>${doc.data().nilai}</td>
+          <td>${ket}</td>
+        `;
+        kuisDua.appendChild(tr)
+      });
+
+      $(document).ready( function () {
+        $('#table-2').DataTable();
+      });
+    }
+
+    // Get Latihan
+    async function getLatihan() {
+      const querySnapshot = await getDocs(collection(db, "latihan"));
+      let i = 1;
+      querySnapshot.forEach((doc) => {
+        let ket = doc.data().nilai >= 70 ? 'Lulus' : 'Tidak Lulus';
+        let tr = document.createElement('tr')
+        tr.innerHTML = `
+          <td>${i++}</td>
+          <td>${doc.data().nama}</td>
+          <td>${doc.data().kelas}</td>
+          <td>${doc.data().nilai}</td>
+          <td>${ket}</td>
+        `;
+        latihan.appendChild(tr)
+      });
+      
+      $(document).ready( function () {
+        $('#table-3').DataTable();
+      });
+    }
+
+    // Call function get 
+    getKuisSatu();
+    getKuisDua();
+    getLatihan();
+
+    const c1 = document.querySelector("#c1")
+    const c2 = document.querySelector("#c2")
+    const c3 = document.querySelector("#c3")
+    const content1 = document.querySelector("#content1")
+    const content2 = document.querySelector("#content2")
+    const content3 = document.querySelector("#content3")
+    const tabContent = document.querySelectorAll(".tabcontent")
+    
+    content2.style.display = "none";
+    content3.style.display = "none";
+
+    c1.addEventListener("click", () => {
+      content2.style.display = "none";
+      content3.style.display = "none";
+      content1.style.display = "block";
+    });
+
+    c2.addEventListener("click", () => {
+      content1.style.display = "none";
+      content3.style.display = "none";
+      content2.style.display = "block";
+    });
+
+    c3.addEventListener("click", () => {
+      content1.style.display = "none";
+      content2.style.display = "none";
+      content3.style.display = "block";
+    });
+
+    if (!sessionStorage.getItem('user')) {
+      sessionStorage.removeItem('user');
+      sessionStorage.removeItem('pass');
+      window.location = '../';
+    }
+  </script>
+</body>
+
+</html>

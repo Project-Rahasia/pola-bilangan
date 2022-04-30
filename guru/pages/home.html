@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Guru</title>
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/style-guru.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body id="body-pd">
+
+  <header class="header" id="header">
+    <div class="header_toggle"> 
+      <i class='bx bx-menu' id="header-toggle"></i> 
+    </div>
+    <!-- <div class="header_img"> 
+      <img src="https://i.imgur.com/hczKIze.jpg" alt=""> 
+    </div> -->
+  </header>
+  <div class="l-navbar" id="nav-bar">
+    <nav id="nav">
+      
+    </nav>
+  </div>
+  <!--Container Main start-->
+  <div class="height-100">
+    <h4>Beranda</h4>
+  </div>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="/assets/js/script-guru.js"></script>
+  <script src="/guru/components/sidebar.js"></script>
+  <script>
+    if (!sessionStorage.getItem('user')) {
+      sessionStorage.removeItem('user');
+      sessionStorage.removeItem('pass');
+      window.location = '../';
+    }
+  </script>
+</body>
+
+</html>

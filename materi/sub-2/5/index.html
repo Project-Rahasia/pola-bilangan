@@ -60,7 +60,15 @@
         </div>
 
         <p>Selamat Mengerjakan!</p>
-        <div class="text-center">
+        <div class="col-lg-7">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" id="nama" placeholder="Nama Lengkap" class="form-control" autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="nama" class="form-label">Kelas</label>
+            <input type="text" id="kelas" placeholder="Kelas" class="form-control" autocomplete="off">
+          </div>
           <button type="button" id="start" class="btn btn-md btn-primary py-1 px-4">Mulai</button>
         </div>
         <hr>
@@ -90,12 +98,20 @@
   <script src="/components/footer.js"></script>
   <script src="/components/modal.js"></script>
   <script>
+    const nama = document.getElementById("nama");
+    const kelas = document.getElementById("kelas");
     const start = document.getElementById("start");
 
     start.addEventListener('click', () => {
-      var now = Date.now();
-      sessionStorage.setItem('timer-1', now);
-      location.href = './kuis.html';
+      if (nama.value === "" || kelas.value === "") {
+        alert("Data yang di isi belum lengkap");
+      } else {
+        var now = Date.now();
+        sessionStorage.setItem('name', nama.value);
+        sessionStorage.setItem('class', kelas.value);
+        sessionStorage.setItem('timer-1', now);
+        location.href = './kuis.html';
+      }
     });
   </script>
 </body>

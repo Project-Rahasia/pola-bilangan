@@ -7,6 +7,10 @@
   font-family: 'Montserrat';
 }
 
+body {
+  background-image: linear-gradient(to right, #85E3B8, #04C5D7);
+}
+
 .btn-start {
   background-color: #fff;
   color: #000;
@@ -45,8 +49,6 @@
 
 /* Banner */
 #banner {
-  position: relative;
-  background-image: linear-gradient(to right, #85E3B8, #04C5D7);
   color: #fff;
   padding-top: 5%;
 }
@@ -61,12 +63,6 @@
   z-index: 1000;
 }
 
-.wave {
-  position: absolute;
-  bottom: -3%;
-  left: 0;
-}
-
 @media screen and (max-width: 767px) {
 
   #banner .col-md-6 {
@@ -78,7 +74,4 @@
     margin-top: 50px;
   }
 
-  .wave {
-    display: none;
-  }
 }

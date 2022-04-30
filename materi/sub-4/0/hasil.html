@@ -29,8 +29,8 @@
         <h1 class="score display-1"></h1>
 
         <hr class="mt-4">
-        <a href="./" class="btn btn-md btn-info text-white">Kerjakan Ulang</a>
-        <a href="/pages/materi-1/0/" class="btn btn-md btn-danger text-white">Kembali Ke Materi</a>
+        <a href="./" class="btn btn-md btn-info text-white retry">Kerjakan Ulang</a>
+        <a href="/materi/sub-1/0/" class="btn btn-md btn-danger text-white next">Kembali Ke Materi</a>
       </div>
     </div>
   </div>
@@ -56,11 +56,12 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/components/modal.js"></script>
-  <script>
+  <script type="module">
     const length = sessionStorage.getItem('length-3');
     const correct = sessionStorage.getItem('correct-3');
     const wrong = sessionStorage.getItem('wrong-3');
     const nama = sessionStorage.getItem('nama');
+    const kelas = sessionStorage.getItem('kelas');
 
     let score = (correct/length) * 100;
 
@@ -68,6 +69,76 @@
     document.querySelector("#correct").innerHTML = correct;
     document.querySelector("#wrong").innerHTML = wrong;
     document.querySelector("#nama").innerHTML = nama;
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDH7bgWPFW34K8ZzCASxPzDKN0a--Xif54",
+      authDomain: "polabilangan-b7b4d.firebaseapp.com",
+      projectId: "polabilangan-b7b4d",
+      storageBucket: "polabilangan-b7b4d.appspot.com",
+      messagingSenderId: "763763673642",
+      appId: "1:763763673642:web:4fee9323444bfe01661153"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+
+    const db = getFirestore(app);
+
+    // Add Data
+    async function addData() {
+      try {
+        const docRef = await addDoc(collection(db, "latihan"), {
+          nama: nama,
+          kelas: kelas,
+          nilai:  Math.ceil(score)
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+
+    function removeStorage() {
+      sessionStorage.removeItem('length-3');
+      sessionStorage.removeItem('correct-3');
+      sessionStorage.removeItem('wrong-3');
+      sessionStorage.removeItem('nama');
+      sessionStorage.removeItem('kelas');
+      sessionStorage.removeItem('timer-3');
+      sessionStorage.removeItem('jawaban-3');
+    }
+
+    if (!sessionStorage.getItem('nama')) {
+      removeStorage();
+      window.location = './';
+    } else {
+      addData();
+    }
+
+    const retry = document.querySelector(".retry");
+    retry.addEventListener("click", (e) => {
+      e.preventDefault();
+      removeStorage();
+      window.location = './';
+    })
+
+    const next = document.querySelectorAll(".next");
+    for(let i=0; i<next.length; i++) {
+      next[i].addEventListener("click", (e) => {
+        e.preventDefault();
+        removeStorage();
+        const href = next[i].getAttribute('href');
+        window.location = href;
+      });
+    }
   </script>
 </body>
 </html>

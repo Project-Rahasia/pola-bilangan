@@ -347,6 +347,10 @@
       }
     }
 
+    if (!sessionStorage.getItem('name') || !sessionStorage.getItem('class')) {
+      sessionStorage.removeItem('soalSession-2');
+      window.location = "./";
+    }
   </script>
   <!-- Mathjax -->
   <script>
