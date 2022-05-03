@@ -28,17 +28,179 @@
   </div>
   <!--Container Main start-->
   <div class="height-100">
-    <h4>Beranda</h4>
+    <h4 class="mb-3">Beranda</h4>
+    <div class="row">
+
+      <div class="col-lg-4">
+        <div class="card shadow">
+          <div class="card-header">
+            <h4>Diagram Kuis 1</h4>
+          </div>
+          <div class="card-body">
+            <div id="piechart-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card shadow">
+          <div class="card-header">
+            <h4>Diagram Kuis 2</h4>
+          </div>
+          <div class="card-body">
+            <div id="piechart-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card shadow">
+          <div class="card-header">
+            <h4>Diagram Latihan</h4>
+          </div>
+          <div class="card-body">
+            <div id="piechart-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="/assets/js/script-guru.js"></script>
   <script src="/guru/components/sidebar.js"></script>
-  <script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDH7bgWPFW34K8ZzCASxPzDKN0a--Xif54",
+      authDomain: "polabilangan-b7b4d.firebaseapp.com",
+      projectId: "polabilangan-b7b4d",
+      storageBucket: "polabilangan-b7b4d.appspot.com",
+      messagingSenderId: "763763673642",
+      appId: "1:763763673642:web:4fee9323444bfe01661153"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getFirestore, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+
+    const db = getFirestore();
+
+    // Diagram 1
+    let passSatu = 0;
+    let notPassSatu = 0;
+
+    const querySnapshot = await getDocs(collection(db, "kuis-1"));
+    querySnapshot.forEach((doc) => {
+      if (doc.data().nilai >= 70) {
+        passSatu++
+      } else {
+        notPassSatu++;
+      }
+    });
+     
+    // Google Chart
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart1);
+    function drawChart1() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Keterangan', 'Jumlah'],
+        ['Lulus',     passSatu],
+        ['Tidak Lulus',  notPassSatu]
+      ]);
+
+      var options = {
+        title: 'Diagram Kuis 1'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart-1'));
+
+      chart.draw(data, options);
+    }
+    // End Diagram 1
+
+    // Diagaram 2
+    let passDua = 0;
+    let notPassDua = 0;
+
+    const querySnapshotDua = await getDocs(collection(db, "kuis-2"));
+    querySnapshotDua.forEach((doc) => {
+      if (doc.data().nilai >= 70) {
+        passDua++
+      } else {
+        notPassDua++;
+      }
+    });
+    
+     // Google Chart
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart2);
+    function drawChart2() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Keterangan', 'Jumlah'],
+        ['Lulus',     passDua],
+        ['Tidak Lulus',  notPassDua]
+      ]);
+
+      var options = {
+        title: 'Diagram Kuis 2'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart-2'));
+
+      chart.draw(data, options);
+    }
+    // End Diagram 2
+
+    // Diagram 3
+    let passTiga = 0;
+    let notPassTiga = 0;
+
+    const querySnapshotTiga = await getDocs(collection(db, "latihan"));
+    querySnapshotTiga.forEach((doc) => {
+      if (doc.data().nilai >= 70) {
+        passTiga++
+      } else {
+        notPassTiga++;
+      }
+    });
+    
+     // Google Chart
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart3);
+    function drawChart3() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Keterangan', 'Jumlah'],
+        ['Lulus',     passTiga],
+        ['Tidak Lulus',  notPassTiga]
+      ]);
+
+      var options = {
+        title: 'Diagram Latihan'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart-3'));
+
+      chart.draw(data, options);
+    }
+    // End Diagram 3
+
     if (!sessionStorage.getItem('user')) {
       sessionStorage.removeItem('user');
       sessionStorage.removeItem('pass');
       window.location = '../';
     }
+
+    
   </script>
 </body>
 

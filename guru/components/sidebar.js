@@ -11,7 +11,7 @@ document.querySelector("#nav").innerHTML = `
     <a href="home.html" class="nav_link ${getChapChild(
       "/guru/pages/home.html"
     )}">
-      <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span>
+      <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Beranda</span>
     </a>
     <a href="nilai.html" class="nav_link ${getChapChild(
       "/guru/pages/nilai.html"
@@ -19,7 +19,7 @@ document.querySelector("#nav").innerHTML = `
       <i class='bx bx-user nav_icon'></i> <span class="nav_name">Daftar Nilai</span>
     </a>
     <a href="#" class="nav_link">
-      <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Messages</span>
+      <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">KKM</span>
     </a>
   </div>
 </div>
