@@ -126,8 +126,9 @@
     const db = getFirestore(app);
 
     // Get Kuis 1
-    async function getKuisSatu() {
-      const querySnapshot = await getDocs(collection(db, "kuis-1"));
+    async function getKuis(data, temp, table) {
+
+      const querySnapshot = await getDocs(collection(db, data));
       let i = 1;
       querySnapshot.forEach((doc) => {
         let ket = doc.data().nilai >= 70 ? 'Lulus' : 'Tidak Lulus';
@@ -139,63 +140,20 @@
           <td>${doc.data().nilai}</td>
           <td>${ket}</td>
         `;
-        kuisSatu.appendChild(tr)
+        temp.appendChild(tr)
       });
 
       $(document).ready( function () {
-        $('#table-1').DataTable();
+        $(`#${table}`).DataTable();
       });
     }
 
-    // Get Kuis 2
-    async function getKuisDua() {
-      const querySnapshot = await getDocs(collection(db, "kuis-2"));
-      let i = 1;
-      querySnapshot.forEach((doc) => {
-        let ket = doc.data().nilai >= 70 ? 'Lulus' : 'Tidak Lulus';
-        let tr = document.createElement('tr')
-        tr.innerHTML = `
-          <td>${i++}</td>
-          <td>${doc.data().nama}</td>
-          <td>${doc.data().kelas}</td>
-          <td>${doc.data().nilai}</td>
-          <td>${ket}</td>
-        `;
-        kuisDua.appendChild(tr)
-      });
+    // Call function
+    getKuis('kuis-1', kuisSatu, 'table-1');
+    getKuis('kuis-2', kuisDua, 'table-2');
+    getKuis('latihan', latihan, 'table-3');
 
-      $(document).ready( function () {
-        $('#table-2').DataTable();
-      });
-    }
-
-    // Get Latihan
-    async function getLatihan() {
-      const querySnapshot = await getDocs(collection(db, "latihan"));
-      let i = 1;
-      querySnapshot.forEach((doc) => {
-        let ket = doc.data().nilai >= 70 ? 'Lulus' : 'Tidak Lulus';
-        let tr = document.createElement('tr')
-        tr.innerHTML = `
-          <td>${i++}</td>
-          <td>${doc.data().nama}</td>
-          <td>${doc.data().kelas}</td>
-          <td>${doc.data().nilai}</td>
-          <td>${ket}</td>
-        `;
-        latihan.appendChild(tr)
-      });
-      
-      $(document).ready( function () {
-        $('#table-3').DataTable();
-      });
-    }
-
-    // Call function get 
-    getKuisSatu();
-    getKuisDua();
-    getLatihan();
-
+    // Tabs
     const c1 = document.querySelector("#c1")
     const c2 = document.querySelector("#c2")
     const c3 = document.querySelector("#c3")

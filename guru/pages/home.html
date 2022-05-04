@@ -93,106 +93,45 @@
     const db = getFirestore();
 
     // Diagram 1
-    let passSatu = 0;
-    let notPassSatu = 0;
-
-    const querySnapshot = await getDocs(collection(db, "kuis-1"));
-    querySnapshot.forEach((doc) => {
-      if (doc.data().nilai >= 70) {
-        passSatu++
-      } else {
-        notPassSatu++;
-      }
-    });
-     
-    // Google Chart
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart1);
-    function drawChart1() {
-
-      var data = google.visualization.arrayToDataTable([
-        ['Keterangan', 'Jumlah'],
-        ['Lulus',     passSatu],
-        ['Tidak Lulus',  notPassSatu]
-      ]);
-
-      var options = {
-        title: 'Diagram Kuis 1'
-      };
-
-      var chart = new google.visualization.PieChart(document.getElementById('piechart-1'));
-
-      chart.draw(data, options);
-    }
-    // End Diagram 1
-
-    // Diagaram 2
-    let passDua = 0;
-    let notPassDua = 0;
-
-    const querySnapshotDua = await getDocs(collection(db, "kuis-2"));
-    querySnapshotDua.forEach((doc) => {
-      if (doc.data().nilai >= 70) {
-        passDua++
-      } else {
-        notPassDua++;
-      }
-    });
     
-     // Google Chart
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart2);
-    function drawChart2() {
 
-      var data = google.visualization.arrayToDataTable([
-        ['Keterangan', 'Jumlah'],
-        ['Lulus',     passDua],
-        ['Tidak Lulus',  notPassDua]
-      ]);
+    async function getDataKuis(data, temp, title) {
+      let pass = 0;
+      let notPass = 0;
 
-      var options = {
-        title: 'Diagram Kuis 2'
-      };
+      const querySnapshot = await getDocs(collection(db, data));
+      querySnapshot.forEach((doc) => {
+        if (doc.data().nilai >= 70) {
+          pass++
+        } else {
+          notPass++;
+        }
+      });
 
-      var chart = new google.visualization.PieChart(document.getElementById('piechart-2'));
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        
+        var data = google.visualization.arrayToDataTable([
+          ['Keterangan', 'Jumlah'],
+          ['Lulus',     pass],
+          ['Tidak Lulus',  notPass]
+        ]);
 
-      chart.draw(data, options);
-    }
-    // End Diagram 2
+        var options = {
+          title: `${title}`
+        };
 
-    // Diagram 3
-    let passTiga = 0;
-    let notPassTiga = 0;
+        var chart = new google.visualization.PieChart(document.getElementById(temp));
 
-    const querySnapshotTiga = await getDocs(collection(db, "latihan"));
-    querySnapshotTiga.forEach((doc) => {
-      if (doc.data().nilai >= 70) {
-        passTiga++
-      } else {
-        notPassTiga++;
+        chart.draw(data, options);
       }
-    });
-    
-     // Google Chart
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart3);
-    function drawChart3() {
-
-      var data = google.visualization.arrayToDataTable([
-        ['Keterangan', 'Jumlah'],
-        ['Lulus',     passTiga],
-        ['Tidak Lulus',  notPassTiga]
-      ]);
-
-      var options = {
-        title: 'Diagram Latihan'
-      };
-
-      var chart = new google.visualization.PieChart(document.getElementById('piechart-3'));
-
-      chart.draw(data, options);
     }
-    // End Diagram 3
+
+    // Call function
+    getDataKuis('kuis-1', 'piechart-1', 'Diagram Kuis 1');
+    getDataKuis('kuis-2', 'piechart-2', 'Diagram Kuis 2');
+    getDataKuis('latihan', 'piechart-3', 'Diagram Latihan');
 
     if (!sessionStorage.getItem('user')) {
       sessionStorage.removeItem('user');
