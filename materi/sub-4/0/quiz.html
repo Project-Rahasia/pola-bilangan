@@ -179,13 +179,51 @@
         }</button>`;
         numberBtn.appendChild(li);
       }
+
+      function results() {
+        let correct = 0;
+        let wrong = 0;
+        
+        const answerContainers = questionContainer.querySelectorAll(".answers");
+        sliceQuestion.forEach((currentQuestion, questionNumber) => {
+          const answerContainer = answerContainers[questionNumber];
   
+          const selector = `input[name=question-tiga${questionNumber}]:checked`;
+          const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+  
+          arrayJawaban.push(userAnswer);
+  
+          if (userAnswer === currentQuestion.correctAnswer) {
+            correct++;
+          } else {
+            wrong++;
+          }
+  
+          sessionStorage.setItem('length-3', sliceQuestion.length);
+          sessionStorage.setItem('wrong-3', wrong);
+          sessionStorage.setItem('correct-3', correct);
+          sessionStorage.removeItem('soalSession-3');
+          for (let i = 0; i < rand_q.length; i++) {
+            for (let j = 0; j < rand_q.length; j++) {
+              if (i == rand_q[j]) {
+                arrayJawaban_urut.push(arrayJawaban[j]);
+                rand_q_fix.push(rand_q[j]);
+              }
+            }
+          }
+          sessionStorage.setItem('jawaban-3', JSON.stringify(arrayJawaban_urut));
+          for (i = 0; i <= 14; i++) {
+            sessionStorage.removeItem(`question-tiga${i}`);
+          }
+          location.href = './hasil.html';
+        });
+      }
   
       function showSlide(n) {
         document.getElementById(`numbBtn${currentSlide}`).classList.remove('active');
         document.getElementById(`numbBtn${n}`).classList.add('active');
-        slides[currentSlide].classList.remove('active-slide')
-        slides[n].classList.add('active-slide')
+        slides[currentSlide].classList.remove('active-slide');
+        slides[n].classList.add('active-slide');
         
         const answerContainers = questionContainer.querySelectorAll('.answers');
         const answerContainer = answerContainers[currentSlide];
@@ -203,8 +241,7 @@
             }
           });
         }
-  
-        
+      
         currentSlide = n
         if(currentSlide === 0) {
           backButton.style.display = "none"
@@ -247,46 +284,8 @@
       nextButton.addEventListener("click", nextSlide)
       backButton.addEventListener("click", backSlide)
       submitButton.addEventListener("click", results)
-  
-      function results() {
-        let correct = 0;
-        let wrong = 0;
-        
-        const answerContainers = questionContainer.querySelectorAll(".answers");
-        sliceQuestion.forEach((currentQuestion, questionNumber) => {
-          const answerContainer = answerContainers[questionNumber];
-  
-          const selector = `input[name=question-tiga${questionNumber}]:checked`;
-          const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-  
-          arrayJawaban.push(userAnswer);
-  
-          if (userAnswer === currentQuestion.correctAnswer) {
-            correct++;
-          } else {
-            wrong++;
-          }
-  
-          sessionStorage.setItem('length-3', sliceQuestion.length);
-          sessionStorage.setItem('wrong-3', wrong);
-          sessionStorage.setItem('correct-3', correct);
-          sessionStorage.removeItem('soalSession-3');
-          for (let i = 0; i < rand_q.length; i++) {
-            for (let j = 0; j < rand_q.length; j++) {
-              if (i == rand_q[j]) {
-                arrayJawaban_urut.push(arrayJawaban[j]);
-                rand_q_fix.push(rand_q[j]);
-              }
-            }
-          }
-          sessionStorage.setItem('jawaban-3', JSON.stringify(arrayJawaban_urut));
-          for (i = 0; i <= 29; i++) {
-            sessionStorage.removeItem(`question-tiga${i}`);
-          }
-          location.href = './hasil.html';
-        });
-      }
-  
+      
+      // Timer
       var timer = parseInt(sessionStorage.getItem('timer-3'));
       var end = timer + 1000 * 60 * 60;
       var countDownDate = end;
