@@ -93,6 +93,7 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/components/modal.js"></script>
+  <script src="/components/open-course.js"></script>
   <script type="module">
     const length = sessionStorage.getItem('length-2');
     const correct = sessionStorage.getItem('correct-2');
@@ -171,6 +172,7 @@
       next[i].addEventListener("click", (e) => {
         e.preventDefault();
         removeStorage();
+        localStorage.setItem('sub-4-0', '1');
         const href = next[i].getAttribute('href');
         window.location = href;
       });

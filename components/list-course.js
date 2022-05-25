@@ -24,19 +24,19 @@ document.querySelector(".accordion").innerHTML = `
   )}" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
     <div class="accordion-body">
       <div class="list-course mb-3">
-        <a href="/materi/sub-1/0/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-1/0/" class="list-course-child isDisabled ${getChapChild(
           "sub-1/0/"
-        )}">Kompetensi Dasar</a>
+        )}" id="sub-1-0">Kompetensi Dasar</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-1/1/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-1/1/" class="list-course-child isDisabled ${getChapChild(
           "sub-1/1/"
-        )}">Peta Konsep</a>
+        )}" id="sub-1-1">Peta Konsep</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-1/2/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-1/2/" class="list-course-child isDisabled ${getChapChild(
           "sub-1/2/"
-        )}">Pendahuluan</a>
+        )}" id="sub-1-2">Pendahuluan</a>
       </div>
     </div>
   </div>
@@ -54,34 +54,34 @@ document.querySelector(".accordion").innerHTML = `
   )}" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
     <div class="accordion-body">
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/0/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-2/0/" class="list-course-child isDisabled ${getChapChild(
           "sub-2/0/"
-        )}">Pendahuluan</a>
+        )}" id="sub-2-0">Pendahuluan</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/1/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-2/1/" class="list-course-child isDisabled ${getChapChild(
           "sub-2/1/"
-        )}">Barisan Bilangan Ganjil dan Genap</a>
+        )}" id="sub-2-1">Barisan Bilangan Ganjil dan Genap</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/2/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-2/2/" class="list-course-child isDisabled ${getChapChild(
           "sub-2/2/"
-        )}">Barisan Bilangan Fibonacci</a>
+        )}" id="sub-2-2">Barisan Bilangan Fibonacci</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/3/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-2/3/" class="list-course-child isDisabled ${getChapChild(
           "sub-2/3/"
-        )}">Pola Bilangan Segitiga Pascal</a>
+        )}" id="sub-2-3">Pola Bilangan Segitiga Pascal</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/4/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-2/4/" class="list-course-child isDisabled ${getChapChild(
           "sub-2/4/"
-        )}">Barisan Bilangan Lainnya</a>
+        )}" id="sub-2-4">Barisan Bilangan Lainnya</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/5/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-2/5/" class="list-course-child isDisabled ${getChapChild(
           "sub-2/5/"
-        )}">Kuis</a>
+        )}" id="sub-2-5">Kuis</a>
       </div>
     </div>
   </div>
@@ -94,39 +94,39 @@ document.querySelector(".accordion").innerHTML = `
       Menentukan Persamaan dari Suatu Konfigurasi Objek
     </button>
   </h2>
-  <div id="flush-collapseThree" class="accordion-collapse collapse  ${getChapClass(
+  <div id="flush-collapseThree" class="accordion-collapse collapse ${getChapClass(
     "sub-3"
   )}" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
     <div class="accordion-body">
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/0/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-3/0/" class="list-course-child isDisabled ${getChapChild(
           "sub-3/0/"
-        )}">Pendahuluan</a>
+        )}" id="sub-3-0">Pendahuluan</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/1/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-3/1/" class="list-course-child isDisabled ${getChapChild(
           "sub-3/1/"
-        )}">Pola Bilangan Persegi</a>
+        )}" id="sub-3-1">Pola Bilangan Persegi</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/2/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-3/2/" class="list-course-child isDisabled ${getChapChild(
           "sub-3/2/"
-        )}">Pola Bilangan Persegi Panjang</a>
+        )}" id="sub-3-2">Pola Bilangan Persegi Panjang</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/3/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-3/3/" class="list-course-child isDisabled ${getChapChild(
           "sub-3/3/"
-        )}">Pola Bilangan Segitiga</a>
+        )}" id="sub-3-3">Pola Bilangan Segitiga</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/4/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-3/4/" class="list-course-child isDisabled ${getChapChild(
           "sub-3/4/"
-        )}">Pola Konfigurasi Objek Lainnya</a>
+        )}" id="sub-3-4">Pola Konfigurasi Objek Lainnya</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/5/" class="list-course-child ${getChapChild(
+        <a href="/materi/sub-3/5/" class="list-course-child isDisabled ${getChapChild(
           "sub-3/5/"
-        )}">Kuis</a>
+        )}" id="sub-3-5">Kuis</a>
       </div>
     </div>
   </div>
@@ -141,7 +141,9 @@ document.querySelector(".accordion").innerHTML = `
     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <div class="list-course mb-3">
-          <a href="/materi/sub-4/0/" class="list-course-child">Latihan</a>
+          <a href="/materi/sub-4/0/" class="list-course-child isDisabled ${getChapChild(
+            "sub-4/0/"
+          )}" id="sub-4-0">Latihan</a>
         </div>
       </div>
     </div>
