@@ -18,7 +18,9 @@ document.querySelector("#nav").innerHTML = `
     )}">
       <i class='bx bx-user nav_icon'></i> <span class="nav_name">Daftar Nilai</span>
     </a>
-    <a href="#" class="nav_link">
+    <a href="kkm.html" class="nav_link ${getChapChild(
+      "/guru/pages/kkm.html"
+    )}">
       <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">KKM</span>
     </a>
   </div>

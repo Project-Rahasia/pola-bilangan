@@ -104,34 +104,48 @@
     const kuisDua = document.querySelector("#kuis-2");
     const latihan = document.querySelector("#latihan");
     // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyCl3K3n1B49SvMNJ8XDp1-Qlq4Lg8yl50k",
-      authDomain: "pola-bilangan.firebaseapp.com",
-      projectId: "pola-bilangan",
-      storageBucket: "pola-bilangan.appspot.com",
-      messagingSenderId: "478074452039",
-      appId: "1:478074452039:web:5ad54b0d2494fd6b3a9962"
-    };
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDY50PlEQAbFayEolKD7mRdT7pshzEuM_A",
+    authDomain: "pola-bilangan-2.firebaseapp.com",
+    projectId: "pola-bilangan-2",
+    storageBucket: "pola-bilangan-2.appspot.com",
+    messagingSenderId: "637677973341",
+    appId: "1:637677973341:web:d3e8a2e11a9f6f445282b4"
+  };
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
 
-    import { getFirestore, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
+    import { getFirestore, doc, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
 
     const db = getFirestore(app);
 
+    async function getKkm () {
+      let kkm = null;
+      const q = query(collection(db, "tb-kkm"), where("idData", "==", 1));
+
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        // console.log(doc.id, " => ", doc.data());
+        kkm = doc.data().kkm
+      });
+      return kkm;
+    }
+
+    const kkm = await getKkm();
     // Get Kuis 1
     async function getKuis(data, temp, table) {
 
       const querySnapshot = await getDocs(collection(db, data));
       let i = 1;
       querySnapshot.forEach((doc) => {
-        let ket = doc.data().nilai >= 70 ? 'Lulus' : 'Tidak Lulus';
+        let ket = doc.data().nilai >= kkm ? 'Lulus' : 'Tidak Lulus';
         let tr = document.createElement('tr')
         tr.innerHTML = `
           <td>${i++}</td>
