@@ -41,6 +41,7 @@
       </div>
       <div class="tabcontent" id="content1">
         <h3>Kuis 1</h3>
+        <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel1('xlsx')">Export Excel</button>
         <table class="table table-striped" id="table-1">
           <thead>
             <tr>
@@ -58,6 +59,7 @@
       </div>
       <div class="tabcontent" id="content2">
         <h3>Kuis 2</h3>
+        <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel2('xlsx')">Export Excel</button>
         <table class="table table-striped" id="table-2">
           <thead>
             <tr>
@@ -75,6 +77,7 @@
       </div>
       <div class="tabcontent" id="content3">
         <h3>Latihan</h3>
+        <button id="btnExport" class="btn btn-sm btn-success mb-4" onclick="exportReportToExcel3('xlsx')">Export Excel</button>
         <table class="table table-striped" id="table-3">
           <thead>
             <tr>
@@ -98,7 +101,33 @@
   <script src="/assets/js/script-guru.js"></script>
   <script src="/guru/components/sidebar.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+  <script type="text/javascript">
+    function exportReportToExcel1(type, fn, dl) {
+      var elt = document.getElementById('table-1');
+      var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+      return dl ?
+          XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+          XLSX.writeFile(wb, fn || ('Kuis-1.' + (type || 'xlsx')));
+    }
+
+    function exportReportToExcel2(type, fn, dl) {
+      var elt = document.getElementById('table-2');
+      var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+      return dl ?
+          XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+          XLSX.writeFile(wb, fn || ('Kuis-2.' + (type || 'xlsx')));
+    }
+
+    function exportReportToExcel3(type, fn, dl) {
+      var elt = document.getElementById('table-3');
+      var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+      return dl ?
+          XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+          XLSX.writeFile(wb, fn || ('latihan.' + (type || 'xlsx')));
+    }
+  </script>
   <script type="module">
     const kuisSatu = document.querySelector("#kuis-1");
     const kuisDua = document.querySelector("#kuis-2");
