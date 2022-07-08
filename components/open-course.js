@@ -25,6 +25,8 @@ const subEmpat0 = document.querySelector("#sub-4-0");
 const getPage = (idElement, localName) => {
   const getLocal = localStorage.getItem(localName);
   if (getLocal != null) {
+    // idElement.forEach((item, index) => {
+    // });
     idElement.classList.remove("isDisabled");
   }
 };

@@ -40,15 +40,6 @@
     
   </section>
 
-  <!-- Float Button -->
-  <a href="#" class="float" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    <i class="fa fa-plus my-float"></i>
-  </a>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    
-  </div>
 
   <!-- Bootstrap JS -->
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -89,7 +80,7 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
 
-    import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, addDoc, query, where } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
 
     const db = getFirestore(app);
 

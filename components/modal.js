@@ -21,7 +21,7 @@ document.querySelector(".modal").innerHTML = `
         )}" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
             <div class="list-course mb-3">
-              <a href="/materi/sub-1/0/" class="list-course-child isDisabled ${getChapChild(
+              <a href="/materi/sub-1/0/" class="list-course-child isDisabled sub-1-0 ${getChapChild(
                 "sub-1/0/"
               )}" id="sub-1-0">Kompetensi Dasar</a>
             </div>

@@ -19,12 +19,18 @@
 
 .quiz-container {
   position: relative;
-  height: 180px;
+  height: 350px;
   margin-top: 10px;
 }
 .quiz-container-2 {
   position: relative;
-  height: 350px;
+  height: 180px;
+  margin-top: 10px;
+}
+
+.quiz-container-3 {
+  position: relative;
+  height: 400px;
   margin-top: 10px;
 }
 
@@ -46,12 +52,18 @@
 
 @media only screen and(max-width: 720px) {
   .quiz-container {
-    height: 700px;
+    height: 400px;
   }
 }
 
 @media only screen and(max-width: 480px) {
   .quiz-container {
-    height: 700px;
+    height: 550px;
+  }
+}
+
+@media only screen and(max-width: 360px) {
+  .quiz-container {
+    height: 750px;
   }
 }
