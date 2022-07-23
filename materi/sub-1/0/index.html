@@ -55,16 +55,13 @@
           <div class="col-lg-6 col-sm-12">
             <!-- <a href="/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a> -->
           </div>
-          <div class="col-lg-6 col-sm-12 text-end">
-            <a href="/materi/sub-1/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+          <div class="col-lg-6 col-sm-12 text-end my-1 text-end d-grid gap-2">
+            <a href="/materi/sub-1/1/" class="btn btn-sm btn-dark next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
 
-        <div class="responsive my-3">
-          <div class="d-grid gap-2">
-            <!-- <a href="/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a> -->
-            <a href="/materi/sub-1/1/" class="btn btn-sm btn-dark" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
-          </div>
+        <div class="responsive">
+
         </div>
       </div>
     </div>
@@ -93,8 +90,8 @@
   <script src="/components/modal.js"></script>
   <script src="/components/open-course.js"></script>
   <script type="text/javascript">
-    const next = document.querySelector("#next");
-
+    const next = document.querySelector(".next");
+    
     next.addEventListener("click", function(e) {
       e.preventDefault();
       localStorage.setItem('sub-1-1', '1');

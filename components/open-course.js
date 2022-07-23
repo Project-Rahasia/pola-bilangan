@@ -1,33 +1,36 @@
 // Sub 1
-const subSatu0 = document.querySelector("#sub-1-0");
-const subSatu1 = document.querySelector("#sub-1-1");
-const subSatu2 = document.querySelector("#sub-1-2");
+const subSatu0 = document.querySelectorAll(".sub-1-0");
+const subSatu1 = document.querySelectorAll(".sub-1-1");
+const subSatu2 = document.querySelectorAll(".sub-1-2");
 
 // Sub 2
-const subDua0 = document.querySelector("#sub-2-0");
-const subDua1 = document.querySelector("#sub-2-1");
-const subDua2 = document.querySelector("#sub-2-2");
-const subDua3 = document.querySelector("#sub-2-3");
-const subDua4 = document.querySelector("#sub-2-4");
-const subDua5 = document.querySelector("#sub-2-5");
+const subDua0 = document.querySelectorAll(".sub-2-0");
+const subDua1 = document.querySelectorAll(".sub-2-1");
+const subDua2 = document.querySelectorAll(".sub-2-2");
+const subDua3 = document.querySelectorAll(".sub-2-3");
+const subDua4 = document.querySelectorAll(".sub-2-4");
+const subDua5 = document.querySelectorAll(".sub-2-5");
 
 // Sub 3
-const subTiga0 = document.querySelector("#sub-3-0");
-const subTiga1 = document.querySelector("#sub-3-1");
-const subTiga2 = document.querySelector("#sub-3-2");
-const subTiga3 = document.querySelector("#sub-3-3");
-const subTiga4 = document.querySelector("#sub-3-4");
-const subTiga5 = document.querySelector("#sub-3-5");
+const subTiga0 = document.querySelectorAll(".sub-3-0");
+const subTiga1 = document.querySelectorAll(".sub-3-1");
+const subTiga2 = document.querySelectorAll(".sub-3-2");
+const subTiga3 = document.querySelectorAll(".sub-3-3");
+const subTiga4 = document.querySelectorAll(".sub-3-4");
+const subTiga5 = document.querySelectorAll(".sub-3-5");
 
 // Sub 4
-const subEmpat0 = document.querySelector("#sub-4-0");
+const subEmpat0 = document.querySelectorAll(".sub-4-0");
 
 const getPage = (idElement, localName) => {
   const getLocal = localStorage.getItem(localName);
   if (getLocal != null) {
+    for (let i = 0; i < idElement.length; i++) {
+      idElement[i].classList.remove("isDisabled");
+    }
     // idElement.forEach((item, index) => {
     // });
-    idElement.classList.remove("isDisabled");
+    // idElement.classList.remove("isDisabled");
   }
 };
 

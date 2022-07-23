@@ -29,12 +29,12 @@ document.querySelector(".accordion").innerHTML = `
         )}" id="sub-1-0">Kompetensi Dasar</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-1/1/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-1/1/" class="list-course-child isDisabled sub-1-1 ${getChapChild(
           "sub-1/1/"
         )}" id="sub-1-1">Peta Konsep</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-1/2/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-1/2/" class="list-course-child isDisabled sub-1-2 ${getChapChild(
           "sub-1/2/"
         )}" id="sub-1-2">Pendahuluan</a>
       </div>
@@ -54,32 +54,32 @@ document.querySelector(".accordion").innerHTML = `
   )}" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
     <div class="accordion-body">
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/0/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-2/0/" class="list-course-child isDisabled sub-2-0 ${getChapChild(
           "sub-2/0/"
         )}" id="sub-2-0">Pendahuluan</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/1/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-2/1/" class="list-course-child isDisabled sub-2-1 ${getChapChild(
           "sub-2/1/"
         )}" id="sub-2-1">Barisan Bilangan Ganjil dan Genap</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/2/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-2/2/" class="list-course-child isDisabled sub-2-2 ${getChapChild(
           "sub-2/2/"
         )}" id="sub-2-2">Barisan Bilangan Fibonacci</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/3/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-2/3/" class="list-course-child isDisabled sub-2-3 ${getChapChild(
           "sub-2/3/"
         )}" id="sub-2-3">Pola Bilangan Segitiga Pascal</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/4/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-2/4/" class="list-course-child isDisabled sub-2-4 ${getChapChild(
           "sub-2/4/"
         )}" id="sub-2-4">Barisan Bilangan Lainnya</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-2/5/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-2/5/" class="list-course-child isDisabled sub-2-5 ${getChapChild(
           "sub-2/5/"
         )}" id="sub-2-5">Kuis</a>
       </div>
@@ -99,32 +99,32 @@ document.querySelector(".accordion").innerHTML = `
   )}" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
     <div class="accordion-body">
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/0/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-3/0/" class="list-course-child isDisabled sub-3-0 ${getChapChild(
           "sub-3/0/"
         )}" id="sub-3-0">Pendahuluan</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/1/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-3/1/" class="list-course-child isDisabled sub-3-1 ${getChapChild(
           "sub-3/1/"
         )}" id="sub-3-1">Pola Bilangan Persegi</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/2/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-3/2/" class="list-course-child isDisabled sub-3-2 ${getChapChild(
           "sub-3/2/"
         )}" id="sub-3-2">Pola Bilangan Persegi Panjang</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/3/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-3/3/" class="list-course-child isDisabled sub-3-3 ${getChapChild(
           "sub-3/3/"
         )}" id="sub-3-3">Pola Bilangan Segitiga</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/4/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-3/4/" class="list-course-child isDisabled sub-3-4 ${getChapChild(
           "sub-3/4/"
         )}" id="sub-3-4">Pola Konfigurasi Objek Lainnya</a>
       </div>
       <div class="list-course mb-3">
-        <a href="/materi/sub-3/5/" class="list-course-child isDisabled ${getChapChild(
+        <a href="/materi/sub-3/5/" class="list-course-child isDisabled sub-3-5 ${getChapChild(
           "sub-3/5/"
         )}" id="sub-3-5">Kuis</a>
       </div>
@@ -141,7 +141,7 @@ document.querySelector(".accordion").innerHTML = `
     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <div class="list-course mb-3">
-          <a href="/materi/sub-4/0/" class="list-course-child isDisabled ${getChapChild(
+          <a href="/materi/sub-4/0/" class="list-course-child isDisabled sub-4-0 ${getChapChild(
             "sub-4/0/"
           )}" id="sub-4-0">Latihan</a>
         </div>

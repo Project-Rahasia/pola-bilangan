@@ -5,27 +5,27 @@ const getChapChild = (path) => {
 document.querySelector("#nav").innerHTML = `
 <div>
   <a href="#" class="nav_logo">
-    <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Guru</span>
+    <i class="fa-solid fa-person-chalkboard nav_logo-icon"></i> <span class="nav_logo-name">Guru</span>
   </a>
   <div class="nav_list">
     <a href="home.html" class="nav_link ${getChapChild(
       "/guru/pages/home.html"
     )}">
-      <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Beranda</span>
+      <i class="fa-solid fa-house nav_icon"></i> <span class="nav_name">Beranda</span>
     </a>
+
     <a href="nilai.html" class="nav_link ${getChapChild(
       "/guru/pages/nilai.html"
     )}">
-      <i class='bx bx-user nav_icon'></i> <span class="nav_name">Daftar Nilai</span>
+      <i class="fa-solid fa-list-check nav_icon"></i> <span class="nav_name">Daftar Nilai</span>
     </a>
-    <a href="kkm.html" class="nav_link ${getChapChild(
-      "/guru/pages/kkm.html"
-    )}">
-      <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">KKM</span>
+
+    <a href="kkm.html" class="nav_link ${getChapChild("/guru/pages/kkm.html")}">
+      <i class="fa-solid fa-circle-check nav_icon"></i> <span class="nav_name">KKM</span>
     </a>
   </div>
 </div>
-<a href="#" class="nav_link" id="logout"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+<a href="#" class="nav_link" id="logout"> <i class="fa-solid fa-right-from-bracket nav_icon"></i> <span class="nav_name">SignOut</span> </a>
 `;
 
 document.getElementById("logout").addEventListener("click", () => {

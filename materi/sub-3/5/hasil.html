@@ -55,20 +55,14 @@
 
         <hr>
         <div class="row web my-3">
-          <div class="col-lg-6 col-sm-12">
+          <div class="col-lg-6 col-sm-12 my-1 text-end d-grid gap-2">
             <a href="/materi/sub-3/4/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
           </div>
-          <div class="col-lg-6 col-sm-12 text-end">
-            <a href="/materi/sub-4/0/" class="btn btn-sm btn-dark next disabled">Selanjutnya <i class="fas fa-chevron-right"></i></a>
+          <div class="col-lg-6 col-sm-12 text-end my-1 text-end d-grid gap-2">
+            <a href="/materi/sub-4/0/" class="btn btn-sm btn-dark next disabled" id="next">Selanjutnya <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
 
-        <div class="responsive my-3">
-          <div class="d-grid gap-2">
-            <a href="/materi/sub-3/4/" class="btn btn-sm btn-outline-dark" id="back"><i class="fas fa-chevron-left"></i> Sebelumnya</a>
-            <a href="/materi/sub-4/0/" class="btn btn-sm btn-dark next disabled">Selanjutnya <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -109,7 +103,7 @@
     document.querySelector("#wrong").innerHTML = wrong;
 
     const message = document.querySelector(".message");
-    const next = document.querySelectorAll(".next");
+    const next = document.querySelector("#next");
 
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
@@ -179,16 +173,12 @@
       window.location = './';
     } else {
       if (score < kkm) {
-        for (let i=0; i<next.length; i++) {
-          next[i].classList.add("disabled");
-        }
+        next.classList.add("disabled");
         addData();
         message.innerText = `Maaf anda belum lulus, nilai minimal yang harus anda dapatkan ${kkm}. Silahkan kerjakan ulang.`;
       } else {
         addData();
-        for (let i=0; i<next.length; i++) {
-          next[i].classList.remove("disabled");
-        }
+        next.classList.remove("disabled");
         message.innerText = `Selamat anda anda lulus. Silahkan lanjut kemateri berikutnya.`;
       }
     }
@@ -200,15 +190,13 @@
       window.location = './';
     })
 
-    for(let i=0; i<next.length; i++) {
-      next[i].addEventListener("click", (e) => {
-        e.preventDefault();
-        removeStorage();
-        localStorage.setItem('sub-4-0', '1');
-        const href = next[i].getAttribute('href');
-        window.location = href;
-      });
-    }
+    next.addEventListener("click", (e) => {
+      e.preventDefault();
+      removeStorage();
+      localStorage.setItem('sub-4-0', '1');
+      const href = next.getAttribute('href');
+      window.location = href;
+    });
   </script>
 </body>
 </html>
