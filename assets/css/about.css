@@ -8,12 +8,12 @@
 }
 
 body {
-  background-image: linear-gradient(to right, #85E3B8, #04C5D7);
+  background-image: #fff;
 }
 
 .btn-start {
   background-color: #fff;
-  color: #000;
+  color: #fff;
 }
 
 .btn-start:hover {
@@ -29,12 +29,12 @@ body {
 }
 
 .navbar {
-  background-image: linear-gradient(to right, #85E3B8, #04C5D7);
+  background-color: linear-gradient(to right, #85E3B8, #04C5D7);
 }
 
 .navbar-brand span {
   font-weight: 500;
-  color: #fff;
+  color: #000;
 }
 
 .navbar-nav li {
@@ -42,14 +42,14 @@ body {
 }
 
 .navbar-nav li a {
-  color: #fff !important;
+  color: #000 !important;
   font-weight: 500;
   text-transform: uppercase;
 }
 
 /* Banner */
 #banner {
-  color: #edebeb;
+  color: #000;
   padding-top: 5%;
 }
 
